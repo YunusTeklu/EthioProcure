@@ -1,0 +1,775 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="14.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.1.0.0\build\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props" Condition="Exists('..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.1.0.0\build\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props')" />
+  <Import Project="..\packages\Microsoft.Net.Compilers.1.0.0\build\Microsoft.Net.Compilers.props" Condition="Exists('..\packages\Microsoft.Net.Compilers.1.0.0\build\Microsoft.Net.Compilers.props')" />
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>
+    </ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{D20204CA-9144-4168-984D-2E4BBE859958}</ProjectGuid>
+    <ProjectTypeGuids>{349c5851-65df-11da-9384-00065b846f21};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>EthioProcure</RootNamespace>
+    <AssemblyName>EthioProcure</AssemblyName>
+    <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
+    <MvcBuildViews>false</MvcBuildViews>
+    <UseIISExpress>true</UseIISExpress>
+    <IISExpressSSLPort />
+    <IISExpressAnonymousAuthentication />
+    <IISExpressWindowsAuthentication />
+    <IISExpressUseClassicPipelineMode />
+    <UseGlobalApplicationHostFile />
+    <NuGetPackageImportStamp>
+    </NuGetPackageImportStamp>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Microsoft.CodeDom.Providers.DotNetCompilerPlatform, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.1.0.0\lib\net45\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="Newtonsoft.Json, Version=6.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>..\packages\Newtonsoft.Json.6.0.4\lib\net45\Newtonsoft.Json.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Security" />
+    <Reference Include="System.Web.DynamicData" />
+    <Reference Include="System.Web.Entity" />
+    <Reference Include="System.Web.ApplicationServices" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Web.Extensions" />
+    <Reference Include="System.Web.Abstractions" />
+    <Reference Include="System.Web.Routing" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Web.Services" />
+    <Reference Include="System.EnterpriseServices" />
+    <Reference Include="Microsoft.Web.Infrastructure, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.Web.Infrastructure.1.0.0.0\lib\net40\Microsoft.Web.Infrastructure.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Net.Http">
+    </Reference>
+    <Reference Include="System.Net.Http.WebRequest">
+    </Reference>
+    <Reference Include="System.Web.Helpers, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.3\lib\net45\System.Web.Helpers.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Mvc, Version=5.2.3.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.Mvc.5.2.3\lib\net45\System.Web.Mvc.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Optimization">
+      <HintPath>..\packages\Microsoft.AspNet.Web.Optimization.1.1.3\lib\net40\System.Web.Optimization.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Razor, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.Razor.3.2.3\lib\net45\System.Web.Razor.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.3\lib\net45\System.Web.WebPages.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages.Deployment, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.3\lib\net45\System.Web.WebPages.Deployment.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages.Razor, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.3\lib\net45\System.Web.WebPages.Razor.dll</HintPath>
+    </Reference>
+    <Reference Include="WebGrease">
+      <Private>True</Private>
+      <HintPath>..\packages\WebGrease.1.5.2\lib\WebGrease.dll</HintPath>
+    </Reference>
+    <Reference Include="Antlr3.Runtime">
+      <Private>True</Private>
+      <HintPath>..\packages\Antlr.3.4.1.9004\lib\Antlr3.Runtime.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Reference Include="EntityFramework">
+      <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer">
+      <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.AspNet.Identity.Core">
+      <HintPath>..\packages\Microsoft.AspNet.Identity.Core.2.2.1\lib\net45\Microsoft.AspNet.Identity.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.AspNet.Identity.Owin">
+      <HintPath>..\packages\Microsoft.AspNet.Identity.Owin.2.2.1\lib\net45\Microsoft.AspNet.Identity.Owin.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.AspNet.Identity.EntityFramework">
+      <HintPath>..\packages\Microsoft.AspNet.Identity.EntityFramework.2.2.1\lib\net45\Microsoft.AspNet.Identity.EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="Owin">
+      <HintPath>..\packages\Owin.1.0\lib\net40\Owin.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Owin">
+      <HintPath>..\packages\Microsoft.Owin.3.0.1\lib\net45\Microsoft.Owin.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Host.SystemWeb">
+      <HintPath>..\packages\Microsoft.Owin.Host.SystemWeb.3.0.1\lib\net45\Microsoft.Owin.Host.SystemWeb.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Security">
+      <HintPath>..\packages\Microsoft.Owin.Security.3.0.1\lib\net45\Microsoft.Owin.Security.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Security.Facebook">
+      <HintPath>..\packages\Microsoft.Owin.Security.Facebook.3.0.1\lib\net45\Microsoft.Owin.Security.Facebook.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Security.Cookies">
+      <HintPath>..\packages\Microsoft.Owin.Security.Cookies.3.0.1\lib\net45\Microsoft.Owin.Security.Cookies.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Security.OAuth">
+      <HintPath>..\packages\Microsoft.Owin.Security.OAuth.3.0.1\lib\net45\Microsoft.Owin.Security.OAuth.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Security.Google">
+      <HintPath>..\packages\Microsoft.Owin.Security.Google.3.0.1\lib\net45\Microsoft.Owin.Security.Google.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Security.Twitter">
+      <HintPath>..\packages\Microsoft.Owin.Security.Twitter.3.0.1\lib\net45\Microsoft.Owin.Security.Twitter.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Security.MicrosoftAccount">
+      <HintPath>..\packages\Microsoft.Owin.Security.MicrosoftAccount.3.0.1\lib\net45\Microsoft.Owin.Security.MicrosoftAccount.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="App_Start\BundleConfig.cs" />
+    <Compile Include="App_Start\FilterConfig.cs" />
+    <Compile Include="App_Start\IdentityConfig.cs" />
+    <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="App_Start\Startup.Auth.cs" />
+    <Compile Include="Controllers\AccountController.cs" />
+    <Compile Include="Controllers\BidsController.cs" />
+    <Compile Include="Controllers\ConsultantsController.cs" />
+    <Compile Include="Controllers\ContractorsController.cs" />
+    <Compile Include="Controllers\EvaluateBidsController.cs" />
+    <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\ManageController.cs" />
+    <Compile Include="Controllers\PublicBodiesController.cs" />
+    <Compile Include="Controllers\SuppliersController.cs" />
+    <Compile Include="Controllers\TendersController.cs" />
+    <Compile Include="Global.asax.cs">
+      <DependentUpon>Global.asax</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201809050829285_initialModel.cs" />
+    <Compile Include="Migrations\201809050829285_initialModel.Designer.cs">
+      <DependentUpon>201809050829285_initialModel.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201809080516111_addPublicBody.cs" />
+    <Compile Include="Migrations\201809080516111_addPublicBody.Designer.cs">
+      <DependentUpon>201809080516111_addPublicBody.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201809080521129_addPrivateBody.cs" />
+    <Compile Include="Migrations\201809080521129_addPrivateBody.Designer.cs">
+      <DependentUpon>201809080521129_addPrivateBody.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201809080529120_addEmployee.cs" />
+    <Compile Include="Migrations\201809080529120_addEmployee.Designer.cs">
+      <DependentUpon>201809080529120_addEmployee.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201809080549332_addContractor.cs" />
+    <Compile Include="Migrations\201809080549332_addContractor.Designer.cs">
+      <DependentUpon>201809080549332_addContractor.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201809091358293_addSupplier.cs" />
+    <Compile Include="Migrations\201809091358293_addSupplier.Designer.cs">
+      <DependentUpon>201809091358293_addSupplier.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201809091404586_addMaterial.cs" />
+    <Compile Include="Migrations\201809091404586_addMaterial.Designer.cs">
+      <DependentUpon>201809091404586_addMaterial.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201809091406122_addAssosiation.cs" />
+    <Compile Include="Migrations\201809091406122_addAssosiation.Designer.cs">
+      <DependentUpon>201809091406122_addAssosiation.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201809091409198_addConsultant.cs" />
+    <Compile Include="Migrations\201809091409198_addConsultant.Designer.cs">
+      <DependentUpon>201809091409198_addConsultant.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201809091429181_addTender.cs" />
+    <Compile Include="Migrations\201809091429181_addTender.Designer.cs">
+      <DependentUpon>201809091429181_addTender.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201809091433057_addTender1.cs" />
+    <Compile Include="Migrations\201809091433057_addTender1.Designer.cs">
+      <DependentUpon>201809091433057_addTender1.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201809100908075_addBid.cs" />
+    <Compile Include="Migrations\201809100908075_addBid.Designer.cs">
+      <DependentUpon>201809100908075_addBid.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201809111406532_addOrder.cs" />
+    <Compile Include="Migrations\201809111406532_addOrder.Designer.cs">
+      <DependentUpon>201809111406532_addOrder.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201809111408311_assosiateOrderToMaterial.cs" />
+    <Compile Include="Migrations\201809111408311_assosiateOrderToMaterial.Designer.cs">
+      <DependentUpon>201809111408311_assosiateOrderToMaterial.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201809120931358_addProject.cs" />
+    <Compile Include="Migrations\201809120931358_addProject.Designer.cs">
+      <DependentUpon>201809120931358_addProject.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201809120936000_asoosiateProjectToOrder.cs" />
+    <Compile Include="Migrations\201809120936000_asoosiateProjectToOrder.Designer.cs">
+      <DependentUpon>201809120936000_asoosiateProjectToOrder.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201809120956554_addAdvPayement.cs" />
+    <Compile Include="Migrations\201809120956554_addAdvPayement.Designer.cs">
+      <DependentUpon>201809120956554_addAdvPayement.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201809121034170_dropAllAssosiationTables.cs" />
+    <Compile Include="Migrations\201809121034170_dropAllAssosiationTables.Designer.cs">
+      <DependentUpon>201809121034170_dropAllAssosiationTables.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201809121036313_addAllAssosiationTables.cs" />
+    <Compile Include="Migrations\201809121036313_addAllAssosiationTables.Designer.cs">
+      <DependentUpon>201809121036313_addAllAssosiationTables.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201809121056557_addTransaction.cs" />
+    <Compile Include="Migrations\201809121056557_addTransaction.Designer.cs">
+      <DependentUpon>201809121056557_addTransaction.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201809260835542_modifyOrg.cs" />
+    <Compile Include="Migrations\201809260835542_modifyOrg.Designer.cs">
+      <DependentUpon>201809260835542_modifyOrg.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201809260917366_modifyContractor.cs" />
+    <Compile Include="Migrations\201809260917366_modifyContractor.Designer.cs">
+      <DependentUpon>201809260917366_modifyContractor.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201809260925456_modifyPrivateBody.cs" />
+    <Compile Include="Migrations\201809260925456_modifyPrivateBody.Designer.cs">
+      <DependentUpon>201809260925456_modifyPrivateBody.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201810071652532_modifyConsultant.cs" />
+    <Compile Include="Migrations\201810071652532_modifyConsultant.Designer.cs">
+      <DependentUpon>201810071652532_modifyConsultant.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201810160636109_modifypublicBody.cs" />
+    <Compile Include="Migrations\201810160636109_modifypublicBody.Designer.cs">
+      <DependentUpon>201810160636109_modifypublicBody.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201810161216028_modifySupplier.cs" />
+    <Compile Include="Migrations\201810161216028_modifySupplier.Designer.cs">
+      <DependentUpon>201810161216028_modifySupplier.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201811010705553_modifyTender.cs" />
+    <Compile Include="Migrations\201811010705553_modifyTender.Designer.cs">
+      <DependentUpon>201811010705553_modifyTender.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201811011447337_modifyTender2.cs" />
+    <Compile Include="Migrations\201811011447337_modifyTender2.Designer.cs">
+      <DependentUpon>201811011447337_modifyTender2.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201811011457459_modifyTender3.cs" />
+    <Compile Include="Migrations\201811011457459_modifyTender3.Designer.cs">
+      <DependentUpon>201811011457459_modifyTender3.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201811021444283_modifyTender4.cs" />
+    <Compile Include="Migrations\201811021444283_modifyTender4.Designer.cs">
+      <DependentUpon>201811021444283_modifyTender4.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201811050925572_modifyBid1.cs" />
+    <Compile Include="Migrations\201811050925572_modifyBid1.Designer.cs">
+      <DependentUpon>201811050925572_modifyBid1.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201811051144455_modifyBid2.cs" />
+    <Compile Include="Migrations\201811051144455_modifyBid2.Designer.cs">
+      <DependentUpon>201811051144455_modifyBid2.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201811061730206_modifyBid3.cs" />
+    <Compile Include="Migrations\201811061730206_modifyBid3.Designer.cs">
+      <DependentUpon>201811061730206_modifyBid3.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201811071346370_modifyBid4.cs" />
+    <Compile Include="Migrations\201811071346370_modifyBid4.Designer.cs">
+      <DependentUpon>201811071346370_modifyBid4.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201811080623597_modifyTender6.cs" />
+    <Compile Include="Migrations\201811080623597_modifyTender6.Designer.cs">
+      <DependentUpon>201811080623597_modifyTender6.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201811091157015_modifyContractor1.cs" />
+    <Compile Include="Migrations\201811091157015_modifyContractor1.Designer.cs">
+      <DependentUpon>201811091157015_modifyContractor1.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201811091207369_modifyConsultant1.cs" />
+    <Compile Include="Migrations\201811091207369_modifyConsultant1.Designer.cs">
+      <DependentUpon>201811091207369_modifyConsultant1.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201811091211474_modifyContractor3.cs" />
+    <Compile Include="Migrations\201811091211474_modifyContractor3.Designer.cs">
+      <DependentUpon>201811091211474_modifyContractor3.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201811100747416_modifyContractor4.cs" />
+    <Compile Include="Migrations\201811100747416_modifyContractor4.Designer.cs">
+      <DependentUpon>201811100747416_modifyContractor4.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201811111144547_modifyPublicBody6.cs" />
+    <Compile Include="Migrations\201811111144547_modifyPublicBody6.Designer.cs">
+      <DependentUpon>201811111144547_modifyPublicBody6.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201811130732528_modifyBid41.cs" />
+    <Compile Include="Migrations\201811130732528_modifyBid41.Designer.cs">
+      <DependentUpon>201811130732528_modifyBid41.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201811130852267_modifyBid5.cs" />
+    <Compile Include="Migrations\201811130852267_modifyBid5.Designer.cs">
+      <DependentUpon>201811130852267_modifyBid5.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201811131126298_modifyBid6.cs" />
+    <Compile Include="Migrations\201811131126298_modifyBid6.Designer.cs">
+      <DependentUpon>201811131126298_modifyBid6.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201811190542206_addEvaluateBid.cs" />
+    <Compile Include="Migrations\201811190542206_addEvaluateBid.Designer.cs">
+      <DependentUpon>201811190542206_addEvaluateBid.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201811191102024_modifyEvaluateBid.cs" />
+    <Compile Include="Migrations\201811191102024_modifyEvaluateBid.Designer.cs">
+      <DependentUpon>201811191102024_modifyEvaluateBid.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201811231634447_modifyTender7.cs" />
+    <Compile Include="Migrations\201811231634447_modifyTender7.Designer.cs">
+      <DependentUpon>201811231634447_modifyTender7.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201812111136010_addToRegister.cs" />
+    <Compile Include="Migrations\201812111136010_addToRegister.Designer.cs">
+      <DependentUpon>201812111136010_addToRegister.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\Configuration.cs" />
+    <Compile Include="Models\AccountViewModels.cs" />
+    <Compile Include="Models\AdvancePayement.cs" />
+    <Compile Include="Models\Bid.cs" />
+    <Compile Include="Models\Consultant.cs" />
+    <Compile Include="Models\Contractor.cs" />
+    <Compile Include="Models\DigitalSignature.cs" />
+    <Compile Include="Models\Employee.cs" />
+    <Compile Include="Models\EvaluateBid.cs" />
+    <Compile Include="Models\IdentityModels.cs" />
+    <Compile Include="Models\ManageViewModels.cs" />
+    <Compile Include="Models\Material.cs" />
+    <Compile Include="Models\Order.cs" />
+    <Compile Include="Models\Organization.cs" />
+    <Compile Include="Models\PrivateBody.cs" />
+    <Compile Include="Models\Project.cs" />
+    <Compile Include="Models\PublicBody.cs" />
+    <Compile Include="Models\RoleName.cs" />
+    <Compile Include="Models\Supplier.cs" />
+    <Compile Include="Models\Tender.cs" />
+    <Compile Include="Models\Transaction.cs" />
+    <Compile Include="Models\ValidateFile.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Startup.cs" />
+    <Compile Include="ViewModel\BidViewModel.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Content\animate.css" />
+    <Content Include="Content\bootstrap-cyborg.css" />
+    <Content Include="Content\bootstrap-darkly.css" />
+    <Content Include="Content\bootstrap-slate.css" />
+    <Content Include="Content\bootstrap-spacelab.css" />
+    <Content Include="Content\bootstrap.css" />
+    <Content Include="Content\bootstrap.min.css" />
+    <Content Include="Content\jquery.datetimepicker.min.css" />
+    <Content Include="Content\themes\base\accordion.css" />
+    <Content Include="Content\themes\base\all.css" />
+    <Content Include="Content\themes\base\autocomplete.css" />
+    <Content Include="Content\themes\base\base.css" />
+    <Content Include="Content\themes\base\button.css" />
+    <Content Include="Content\themes\base\core.css" />
+    <Content Include="Content\themes\base\datepicker.css" />
+    <Content Include="Content\themes\base\dialog.css" />
+    <Content Include="Content\themes\base\draggable.css" />
+    <Content Include="Content\themes\base\images\ui-bg_flat_0_aaaaaa_40x100.png" />
+    <Content Include="Content\themes\base\images\ui-bg_flat_75_ffffff_40x100.png" />
+    <Content Include="Content\themes\base\images\ui-bg_glass_55_fbf9ee_1x400.png" />
+    <Content Include="Content\themes\base\images\ui-bg_glass_65_ffffff_1x400.png" />
+    <Content Include="Content\themes\base\images\ui-bg_glass_75_dadada_1x400.png" />
+    <Content Include="Content\themes\base\images\ui-bg_glass_75_e6e6e6_1x400.png" />
+    <Content Include="Content\themes\base\images\ui-bg_glass_95_fef1ec_1x400.png" />
+    <Content Include="Content\themes\base\images\ui-bg_highlight-soft_75_cccccc_1x100.png" />
+    <Content Include="Content\themes\base\images\ui-icons_222222_256x240.png" />
+    <Content Include="Content\themes\base\images\ui-icons_2e83ff_256x240.png" />
+    <Content Include="Content\themes\base\images\ui-icons_444444_256x240.png" />
+    <Content Include="Content\themes\base\images\ui-icons_454545_256x240.png" />
+    <Content Include="Content\themes\base\images\ui-icons_555555_256x240.png" />
+    <Content Include="Content\themes\base\images\ui-icons_777620_256x240.png" />
+    <Content Include="Content\themes\base\images\ui-icons_777777_256x240.png" />
+    <Content Include="Content\themes\base\images\ui-icons_888888_256x240.png" />
+    <Content Include="Content\themes\base\images\ui-icons_cc0000_256x240.png" />
+    <Content Include="Content\themes\base\images\ui-icons_cd0a0a_256x240.png" />
+    <Content Include="Content\themes\base\images\ui-icons_ffffff_256x240.png" />
+    <Content Include="Content\themes\base\jquery-ui.css" />
+    <Content Include="Content\themes\base\jquery-ui.min.css" />
+    <Content Include="Content\themes\base\menu.css" />
+    <Content Include="Content\themes\base\progressbar.css" />
+    <Content Include="Content\themes\base\resizable.css" />
+    <Content Include="Content\themes\base\selectable.css" />
+    <Content Include="Content\themes\base\selectmenu.css" />
+    <Content Include="Content\themes\base\slider.css" />
+    <Content Include="Content\themes\base\sortable.css" />
+    <Content Include="Content\themes\base\spinner.css" />
+    <Content Include="Content\themes\base\tabs.css" />
+    <Content Include="Content\themes\base\theme.css" />
+    <Content Include="Content\themes\base\tooltip.css" />
+    <Content Include="favicon.ico" />
+    <Content Include="fonts\glyphicons-halflings-regular.svg" />
+    <Content Include="Global.asax" />
+    <Content Include="Content\Site.css" />
+    <Content Include="Images\BG1.JPG" />
+    <Content Include="Images\BG2.JPG" />
+    <Content Include="Images\BG3.JPG" />
+    <Content Include="Images\BG4.JPG" />
+    <Content Include="Images\consultant.jpg" />
+    <Content Include="Images\contractor2.jpg" />
+    <Content Include="Images\government.png" />
+    <Content Include="Images\LogoFinal2.JPG" />
+    <Content Include="Images\logohdfj.png" />
+    <Content Include="Images\new.png" />
+    <Content Include="Images\Slide1.JPG" />
+    <Content Include="Images\Slide2.JPG" />
+    <Content Include="Images\Slide3.JPG" />
+    <Content Include="Images\Slide4.JPG" />
+    <Content Include="Images\Slide5.JPG" />
+    <Content Include="Images\Slide6.JPG" />
+    <Content Include="Scripts\bootstrap.js" />
+    <Content Include="Scripts\bootstrap.min.js" />
+    <Content Include="ClassDiagram3.cd" />
+    <Content Include="ClassDiagram2.cd" />
+    <None Include="Scripts\jquery-1.10.2.intellisense.js" />
+    <None Include="Scripts\jquery-1.12.4-vsdoc.js" />
+    <Content Include="Scripts\jquery-1.12.4.js" />
+    <Content Include="Scripts\jquery-1.12.4.min.js" />
+    <Content Include="Scripts\jquery-1.12.4.min.map" />
+    <None Include="Scripts\jquery.validate-vsdoc.js" />
+    <Content Include="Scripts\jquery-ui-1.12.1.js" />
+    <Content Include="Scripts\jquery-ui-1.12.1.min.js" />
+    <Content Include="Scripts\jquery.datetimepicker.full.js" />
+    <Content Include="Scripts\jquery.validate.js" />
+    <Content Include="Scripts\jquery.validate.min.js" />
+    <Content Include="Scripts\jquery.validate.unobtrusive.js" />
+    <Content Include="Scripts\jquery.validate.unobtrusive.min.js" />
+    <Content Include="Scripts\modernizr-2.6.2.js" />
+    <Content Include="Scripts\respond.js" />
+    <Content Include="Scripts\respond.min.js" />
+    <Content Include="Scripts\_references.js" />
+    <Content Include="Web.config" />
+    <Content Include="Web.Debug.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </Content>
+    <Content Include="Web.Release.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </Content>
+    <Content Include="Views\Web.config" />
+    <Content Include="Views\_ViewStart.cshtml" />
+    <Content Include="Views\Shared\Error.cshtml" />
+    <Content Include="Views\Shared\_Layout.cshtml" />
+    <Content Include="Views\Home\About.cshtml" />
+    <Content Include="Views\Home\Contact.cshtml" />
+    <Content Include="Views\Home\Index.cshtml" />
+    <Content Include="Views\Account\_ExternalLoginsListPartial.cshtml" />
+    <Content Include="Views\Account\ConfirmEmail.cshtml" />
+    <Content Include="Views\Account\ExternalLoginConfirmation.cshtml" />
+    <Content Include="Views\Account\ExternalLoginFailure.cshtml" />
+    <Content Include="Views\Account\ForgotPassword.cshtml" />
+    <Content Include="Views\Account\ForgotPasswordConfirmation.cshtml" />
+    <Content Include="Views\Account\Login.cshtml" />
+    <Content Include="Views\Account\Register.cshtml" />
+    <Content Include="Views\Account\ResetPassword.cshtml" />
+    <Content Include="Views\Account\ResetPasswordConfirmation.cshtml" />
+    <Content Include="Views\Account\SendCode.cshtml" />
+    <Content Include="Views\Account\VerifyCode.cshtml" />
+    <Content Include="Views\Manage\AddPhoneNumber.cshtml" />
+    <Content Include="Views\Manage\ChangePassword.cshtml" />
+    <Content Include="Views\Manage\Index.cshtml" />
+    <Content Include="Views\Manage\ManageLogins.cshtml" />
+    <Content Include="Views\Manage\SetPassword.cshtml" />
+    <Content Include="Views\Manage\VerifyPhoneNumber.cshtml" />
+    <Content Include="Views\Shared\Lockout.cshtml" />
+    <Content Include="Views\Shared\_LoginPartial.cshtml" />
+    <Content Include="Views\Contractors\Create.cshtml" />
+    <Content Include="Views\Contractors\Delete.cshtml" />
+    <Content Include="Views\Contractors\DetailsOthers.cshtml" />
+    <Content Include="Views\Contractors\Edit.cshtml" />
+    <Content Include="Views\Contractors\IndexOthers.cshtml" />
+    <Content Include="Views\Consultants\Create.cshtml" />
+    <Content Include="Views\Consultants\Delete.cshtml" />
+    <Content Include="Views\Consultants\DetailsConsultant.cshtml" />
+    <Content Include="Views\Consultants\Edit.cshtml" />
+    <Content Include="Views\PublicBodies\Create.cshtml" />
+    <Content Include="Views\PublicBodies\Delete.cshtml" />
+    <Content Include="Views\PublicBodies\DetailsOthers.cshtml" />
+    <Content Include="Views\PublicBodies\Edit.cshtml" />
+    <Content Include="Views\PublicBodies\IndexOthers.cshtml" />
+    <Content Include="Views\Suppliers\Create.cshtml" />
+    <Content Include="Views\Suppliers\Delete.cshtml" />
+    <Content Include="Views\Suppliers\DetailsPublic.cshtml" />
+    <Content Include="Views\Suppliers\Edit.cshtml" />
+    <Content Include="Views\Suppliers\Index.cshtml" />
+    <Content Include="Views\Tenders\Create.cshtml" />
+    <Content Include="Views\Tenders\Delete.cshtml" />
+    <Content Include="Views\Tenders\Details.cshtml" />
+    <Content Include="Views\Tenders\Edit.cshtml" />
+    <Content Include="Views\Tenders\Index.cshtml" />
+    <Content Include="Views\Bids\Create.cshtml" />
+    <Content Include="Views\Bids\Delete.cshtml" />
+    <Content Include="Views\Bids\Details.cshtml" />
+    <Content Include="Views\Bids\Edit.cshtml" />
+    <Content Include="Views\Bids\Index.cshtml" />
+    <Content Include="Views\EvaluateBids\Create.cshtml" />
+    <Content Include="Views\EvaluateBids\Delete.cshtml" />
+    <Content Include="Views\EvaluateBids\Details.cshtml" />
+    <Content Include="Views\EvaluateBids\Edit.cshtml" />
+    <Content Include="Views\EvaluateBids\Index.cshtml" />
+    <Content Include="Views\Home\SelectOrganization.cshtml" />
+    <Content Include="Views\EvaluateBids\ReportList.cshtml" />
+    <Content Include="Views\Suppliers\DetailsPublic - Copy.cshtml" />
+    <Content Include="Views\Suppliers\Delete - Copy.cshtml" />
+    <Content Include="Views\Consultants\DetailsOthers.cshtml" />
+    <Content Include="Views\Consultants\IndexOthers.cshtml" />
+    <Content Include="Views\Contractors\DetailsContractor.cshtml" />
+    <Content Include="Views\PublicBodies\DetailsPublicBody.cshtml" />
+    <Content Include="Views\Tenders\IndexPublic.cshtml" />
+    <Content Include="Views\Bids\DetailsPublic.cshtml" />
+    <Content Include="Views\Bids\DetailsContractor.cshtml" />
+    <Content Include="Views\Bids\DetailsEvaluate.cshtml" />
+    <Content Include="Views\Tenders\DetailsPublicBodyBidList.cshtml" />
+    <Content Include="Views\Tenders\DetailsPublicBody.cshtml" />
+    <Content Include="Views\Tenders\DetailsConsultantbidList.cshtml" />
+    <Content Include="Views\Tenders\DetailsConsultant.cshtml" />
+    <Content Include="Views\Tenders\DetailsContractorCreateBid.cshtml" />
+    <Content Include="Views\Tenders\DetailsContractorBidList.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="App_Data\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="fonts\glyphicons-halflings-regular.woff" />
+    <Content Include="fonts\glyphicons-halflings-regular.ttf" />
+    <Content Include="fonts\glyphicons-halflings-regular.eot" />
+    <Content Include="packages.config" />
+    <None Include="Project_Readme.html" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Migrations\201809050829285_initialModel.resx">
+      <DependentUpon>201809050829285_initialModel.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201809080516111_addPublicBody.resx">
+      <DependentUpon>201809080516111_addPublicBody.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201809080521129_addPrivateBody.resx">
+      <DependentUpon>201809080521129_addPrivateBody.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201809080529120_addEmployee.resx">
+      <DependentUpon>201809080529120_addEmployee.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201809080549332_addContractor.resx">
+      <DependentUpon>201809080549332_addContractor.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201809091358293_addSupplier.resx">
+      <DependentUpon>201809091358293_addSupplier.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201809091404586_addMaterial.resx">
+      <DependentUpon>201809091404586_addMaterial.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201809091406122_addAssosiation.resx">
+      <DependentUpon>201809091406122_addAssosiation.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201809091409198_addConsultant.resx">
+      <DependentUpon>201809091409198_addConsultant.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201809091429181_addTender.resx">
+      <DependentUpon>201809091429181_addTender.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201809091433057_addTender1.resx">
+      <DependentUpon>201809091433057_addTender1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201809100908075_addBid.resx">
+      <DependentUpon>201809100908075_addBid.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201809111406532_addOrder.resx">
+      <DependentUpon>201809111406532_addOrder.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201809111408311_assosiateOrderToMaterial.resx">
+      <DependentUpon>201809111408311_assosiateOrderToMaterial.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201809120931358_addProject.resx">
+      <DependentUpon>201809120931358_addProject.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201809120936000_asoosiateProjectToOrder.resx">
+      <DependentUpon>201809120936000_asoosiateProjectToOrder.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201809120956554_addAdvPayement.resx">
+      <DependentUpon>201809120956554_addAdvPayement.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201809121034170_dropAllAssosiationTables.resx">
+      <DependentUpon>201809121034170_dropAllAssosiationTables.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201809121036313_addAllAssosiationTables.resx">
+      <DependentUpon>201809121036313_addAllAssosiationTables.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201809121056557_addTransaction.resx">
+      <DependentUpon>201809121056557_addTransaction.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201809260835542_modifyOrg.resx">
+      <DependentUpon>201809260835542_modifyOrg.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201809260917366_modifyContractor.resx">
+      <DependentUpon>201809260917366_modifyContractor.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201809260925456_modifyPrivateBody.resx">
+      <DependentUpon>201809260925456_modifyPrivateBody.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201810071652532_modifyConsultant.resx">
+      <DependentUpon>201810071652532_modifyConsultant.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201810160636109_modifypublicBody.resx">
+      <DependentUpon>201810160636109_modifypublicBody.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201810161216028_modifySupplier.resx">
+      <DependentUpon>201810161216028_modifySupplier.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201811010705553_modifyTender.resx">
+      <DependentUpon>201811010705553_modifyTender.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201811011447337_modifyTender2.resx">
+      <DependentUpon>201811011447337_modifyTender2.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201811011457459_modifyTender3.resx">
+      <DependentUpon>201811011457459_modifyTender3.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201811021444283_modifyTender4.resx">
+      <DependentUpon>201811021444283_modifyTender4.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201811050925572_modifyBid1.resx">
+      <DependentUpon>201811050925572_modifyBid1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201811051144455_modifyBid2.resx">
+      <DependentUpon>201811051144455_modifyBid2.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201811061730206_modifyBid3.resx">
+      <DependentUpon>201811061730206_modifyBid3.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201811071346370_modifyBid4.resx">
+      <DependentUpon>201811071346370_modifyBid4.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201811080623597_modifyTender6.resx">
+      <DependentUpon>201811080623597_modifyTender6.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201811091157015_modifyContractor1.resx">
+      <DependentUpon>201811091157015_modifyContractor1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201811091207369_modifyConsultant1.resx">
+      <DependentUpon>201811091207369_modifyConsultant1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201811091211474_modifyContractor3.resx">
+      <DependentUpon>201811091211474_modifyContractor3.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201811100747416_modifyContractor4.resx">
+      <DependentUpon>201811100747416_modifyContractor4.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201811111144547_modifyPublicBody6.resx">
+      <DependentUpon>201811111144547_modifyPublicBody6.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201811130732528_modifyBid41.resx">
+      <DependentUpon>201811130732528_modifyBid41.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201811130852267_modifyBid5.resx">
+      <DependentUpon>201811130852267_modifyBid5.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201811131126298_modifyBid6.resx">
+      <DependentUpon>201811131126298_modifyBid6.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201811190542206_addEvaluateBid.resx">
+      <DependentUpon>201811190542206_addEvaluateBid.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201811191102024_modifyEvaluateBid.resx">
+      <DependentUpon>201811191102024_modifyEvaluateBid.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201811231634447_modifyTender7.resx">
+      <DependentUpon>201811231634447_modifyTender7.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201812111136010_addToRegister.resx">
+      <DependentUpon>201812111136010_addToRegister.cs</DependentUpon>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
+  </ItemGroup>
+  <PropertyGroup>
+    <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
+    <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
+  </PropertyGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <Import Project="$(VSToolsPath)\WebApplications\Microsoft.WebApplication.targets" Condition="'$(VSToolsPath)' != ''" />
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" Condition="false" />
+  <Target Name="MvcBuildViews" AfterTargets="AfterBuild" Condition="'$(MvcBuildViews)'=='true'">
+    <AspNetCompiler VirtualPath="temp" PhysicalPath="$(WebProjectOutputDir)" />
+  </Target>
+  <ProjectExtensions>
+    <VisualStudio>
+      <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}">
+        <WebProjectProperties>
+          <UseIIS>True</UseIIS>
+          <AutoAssignPort>True</AutoAssignPort>
+          <DevelopmentServerPort>6954</DevelopmentServerPort>
+          <DevelopmentServerVPath>/</DevelopmentServerVPath>
+          <IISUrl>http://localhost:6954/</IISUrl>
+          <NTLMAuthentication>False</NTLMAuthentication>
+          <UseCustomServer>False</UseCustomServer>
+          <CustomServerUrl>
+          </CustomServerUrl>
+          <SaveServerSettingsInUserFile>False</SaveServerSettingsInUserFile>
+        </WebProjectProperties>
+      </FlavorProperties>
+    </VisualStudio>
+  </ProjectExtensions>
+  <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
+    <PropertyGroup>
+      <ErrorText>This project references NuGet package(s) that are missing on this computer. Use NuGet Package Restore to download them.  For more information, see http://go.microsoft.com/fwlink/?LinkID=322105. The missing file is {0}.</ErrorText>
+    </PropertyGroup>
+    <Error Condition="!Exists('..\packages\Microsoft.Net.Compilers.1.0.0\build\Microsoft.Net.Compilers.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Microsoft.Net.Compilers.1.0.0\build\Microsoft.Net.Compilers.props'))" />
+    <Error Condition="!Exists('..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.1.0.0\build\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.1.0.0\build\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props'))" />
+  </Target>
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it.
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target> -->
+</Project>

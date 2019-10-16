@@ -1,0 +1,235 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="ModelStoreContainer" CdmEntityContainer="Entities">
+    <EntitySetMapping Name="C__MigrationHistory">
+      <EntityTypeMapping TypeName="Model.C__MigrationHistory">
+        <MappingFragment StoreEntitySet="__MigrationHistory">
+          <ScalarProperty Name="MigrationId" ColumnName="MigrationId" />
+          <ScalarProperty Name="ContextKey" ColumnName="ContextKey" />
+          <ScalarProperty Name="Model" ColumnName="Model" />
+          <ScalarProperty Name="ProductVersion" ColumnName="ProductVersion" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="AdvancePayements">
+      <EntityTypeMapping TypeName="Model.AdvancePayement">
+        <MappingFragment StoreEntitySet="AdvancePayements">
+          <ScalarProperty Name="AdvancePayementId" ColumnName="AdvancePayementId" />
+          <ScalarProperty Name="apRate" ColumnName="apRate" />
+          <ScalarProperty Name="apNumber" ColumnName="apNumber" />
+          <ScalarProperty Name="amount" ColumnName="amount" />
+          <ScalarProperty Name="project_ProjectId" ColumnName="project_ProjectId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="AspNetRoles">
+      <EntityTypeMapping TypeName="Model.AspNetRole">
+        <MappingFragment StoreEntitySet="AspNetRoles">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="AspNetUserClaims">
+      <EntityTypeMapping TypeName="Model.AspNetUserClaim">
+        <MappingFragment StoreEntitySet="AspNetUserClaims">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="UserId" ColumnName="UserId" />
+          <ScalarProperty Name="ClaimType" ColumnName="ClaimType" />
+          <ScalarProperty Name="ClaimValue" ColumnName="ClaimValue" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="AspNetUserLogins">
+      <EntityTypeMapping TypeName="Model.AspNetUserLogin">
+        <MappingFragment StoreEntitySet="AspNetUserLogins">
+          <ScalarProperty Name="LoginProvider" ColumnName="LoginProvider" />
+          <ScalarProperty Name="ProviderKey" ColumnName="ProviderKey" />
+          <ScalarProperty Name="UserId" ColumnName="UserId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="AspNetUsers">
+      <EntityTypeMapping TypeName="Model.AspNetUser">
+        <MappingFragment StoreEntitySet="AspNetUsers">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Email" ColumnName="Email" />
+          <ScalarProperty Name="EmailConfirmed" ColumnName="EmailConfirmed" />
+          <ScalarProperty Name="PasswordHash" ColumnName="PasswordHash" />
+          <ScalarProperty Name="SecurityStamp" ColumnName="SecurityStamp" />
+          <ScalarProperty Name="PhoneNumber" ColumnName="PhoneNumber" />
+          <ScalarProperty Name="PhoneNumberConfirmed" ColumnName="PhoneNumberConfirmed" />
+          <ScalarProperty Name="TwoFactorEnabled" ColumnName="TwoFactorEnabled" />
+          <ScalarProperty Name="LockoutEndDateUtc" ColumnName="LockoutEndDateUtc" />
+          <ScalarProperty Name="LockoutEnabled" ColumnName="LockoutEnabled" />
+          <ScalarProperty Name="AccessFailedCount" ColumnName="AccessFailedCount" />
+          <ScalarProperty Name="UserName" ColumnName="UserName" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Bids">
+      <EntityTypeMapping TypeName="Model.Bid">
+        <MappingFragment StoreEntitySet="Bids">
+          <ScalarProperty Name="BidId" ColumnName="BidId" />
+          <ScalarProperty Name="methodology" ColumnName="methodology" />
+          <ScalarProperty Name="implementationPlan" ColumnName="implementationPlan" />
+          <ScalarProperty Name="workSchedule" ColumnName="workSchedule" />
+          <ScalarProperty Name="bidSecurity" ColumnName="bidSecurity" />
+          <ScalarProperty Name="certificateOfSiteVisit" ColumnName="certificateOfSiteVisit" />
+          <ScalarProperty Name="consultant_OrganizationId" ColumnName="consultant_OrganizationId" />
+          <ScalarProperty Name="contractor_OrganizationId" ColumnName="contractor_OrganizationId" />
+          <ScalarProperty Name="tender_TenderId" ColumnName="tender_TenderId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Employees">
+      <EntityTypeMapping TypeName="Model.Employee">
+        <MappingFragment StoreEntitySet="Employees">
+          <ScalarProperty Name="EmployeeId" ColumnName="EmployeeId" />
+          <ScalarProperty Name="firstName" ColumnName="firstName" />
+          <ScalarProperty Name="fathrName" ColumnName="fathrName" />
+          <ScalarProperty Name="gFatherName" ColumnName="gFatherName" />
+          <ScalarProperty Name="role" ColumnName="role" />
+          <ScalarProperty Name="employementContract" ColumnName="employementContract" />
+          <ScalarProperty Name="password" ColumnName="password" />
+          <ScalarProperty Name="email" ColumnName="email" />
+          <ScalarProperty Name="telephone" ColumnName="telephone" />
+          <ScalarProperty Name="OrganizationId" ColumnName="OrganizationId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Materials">
+      <EntityTypeMapping TypeName="Model.Material">
+        <MappingFragment StoreEntitySet="Materials">
+          <ScalarProperty Name="MaterialId" ColumnName="MaterialId" />
+          <ScalarProperty Name="name" ColumnName="name" />
+          <ScalarProperty Name="unitIn" ColumnName="unitIn" />
+          <ScalarProperty Name="unitPrice" ColumnName="unitPrice" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Orders">
+      <EntityTypeMapping TypeName="Model.Order">
+        <MappingFragment StoreEntitySet="Orders">
+          <ScalarProperty Name="OrderId" ColumnName="OrderId" />
+          <ScalarProperty Name="orderDate" ColumnName="orderDate" />
+          <ScalarProperty Name="deliveryDate" ColumnName="deliveryDate" />
+          <ScalarProperty Name="orderStatus" ColumnName="orderStatus" />
+          <ScalarProperty Name="orderValidity" ColumnName="orderValidity" />
+          <ScalarProperty Name="quantity" ColumnName="quantity" />
+          <ScalarProperty Name="semiTotal" ColumnName="semiTotal" />
+          <ScalarProperty Name="materialQualityCertificate" ColumnName="materialQualityCertificate" />
+          <ScalarProperty Name="supplier_OrganizationId" ColumnName="supplier_OrganizationId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Organizations">
+      <EntityTypeMapping TypeName="Model.Organization">
+        <MappingFragment StoreEntitySet="Organizations">
+          <ScalarProperty Name="OrganizationId" ColumnName="OrganizationId" />
+          <ScalarProperty Name="organizationName" ColumnName="organizationName" />
+          <ScalarProperty Name="logo" ColumnName="logo" />
+          <ScalarProperty Name="description" ColumnName="description" />
+          <ScalarProperty Name="email" ColumnName="email" />
+          <ScalarProperty Name="telephone" ColumnName="telephone" />
+          <ScalarProperty Name="publicCertificate" ColumnName="publicCertificate" />
+          <ScalarProperty Name="Discriminator" ColumnName="Discriminator" />
+          <ScalarProperty Name="tinNo" ColumnName="tinNo" />
+          <ScalarProperty Name="businessLicence" ColumnName="businessLicence" />
+          <ScalarProperty Name="contractorLevel" ColumnName="contractorLevel" />
+          <ScalarProperty Name="annualTurnover" ColumnName="annualTurnover" />
+          <ScalarProperty Name="contractorType" ColumnName="contractorType" />
+          <ScalarProperty Name="certificateOfCompetency" ColumnName="certificateOfCompetency" />
+          <ScalarProperty Name="auditReport" ColumnName="auditReport" />
+          <ScalarProperty Name="machinaryCertificate" ColumnName="machinaryCertificate" />
+          <ScalarProperty Name="numProfessionalEngineers" ColumnName="numProfessionalEngineers" />
+          <ScalarProperty Name="numGraduateEngineers" ColumnName="numGraduateEngineers" />
+          <ScalarProperty Name="numAssotiateEngineers" ColumnName="numAssotiateEngineers" />
+          <ScalarProperty Name="staffCV" ColumnName="staffCV" />
+          <ScalarProperty Name="performanceletter" ColumnName="performanceletter" />
+          <ScalarProperty Name="bankName" ColumnName="bankName" />
+          <ScalarProperty Name="accountNo" ColumnName="accountNo" />
+          <ScalarProperty Name="consultancyContract" ColumnName="consultancyContract" />
+          <ScalarProperty Name="logoName" ColumnName="logoName" />
+          <ScalarProperty Name="cocName" ColumnName="cocName" />
+          <ScalarProperty Name="arName" ColumnName="arName" />
+          <ScalarProperty Name="mcName" ColumnName="mcName" />
+          <ScalarProperty Name="scName" ColumnName="scName" />
+          <ScalarProperty Name="plName" ColumnName="plName" />
+          <ScalarProperty Name="blName" ColumnName="blName" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Projects">
+      <EntityTypeMapping TypeName="Model.Project">
+        <MappingFragment StoreEntitySet="Projects">
+          <ScalarProperty Name="ProjectId" ColumnName="ProjectId" />
+          <ScalarProperty Name="bankName" ColumnName="bankName" />
+          <ScalarProperty Name="projectAccountNo" ColumnName="projectAccountNo" />
+          <ScalarProperty Name="projectContract" ColumnName="projectContract" />
+          <ScalarProperty Name="letterOfAcceptence" ColumnName="letterOfAcceptence" />
+          <ScalarProperty Name="consultant_OrganizationId" ColumnName="consultant_OrganizationId" />
+          <ScalarProperty Name="contractor_OrganizationId" ColumnName="contractor_OrganizationId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Tenders">
+      <EntityTypeMapping TypeName="Model.Tender">
+        <MappingFragment StoreEntitySet="Tenders">
+          <ScalarProperty Name="TenderId" ColumnName="TenderId" />
+          <ScalarProperty Name="projectTitle" ColumnName="projectTitle" />
+          <ScalarProperty Name="projectScope" ColumnName="projectScope" />
+          <ScalarProperty Name="openingDate" ColumnName="openingDate" />
+          <ScalarProperty Name="submissionDeadline" ColumnName="submissionDeadline" />
+          <ScalarProperty Name="contractType" ColumnName="contractType" />
+          <ScalarProperty Name="requiredContractors" ColumnName="requiredContractors" />
+          <ScalarProperty Name="evaluationMethod" ColumnName="evaluationMethod" />
+          <ScalarProperty Name="consultant_OrganizationId" ColumnName="consultant_OrganizationId" />
+          <ScalarProperty Name="tenderer_OrganizationId" ColumnName="tenderer_OrganizationId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Transactions">
+      <EntityTypeMapping TypeName="Model.Transaction">
+        <MappingFragment StoreEntitySet="Transactions">
+          <ScalarProperty Name="TransactionId" ColumnName="TransactionId" />
+          <ScalarProperty Name="amountTransfered" ColumnName="amountTransfered" />
+          <ScalarProperty Name="order_OrderId" ColumnName="order_OrderId" />
+          <ScalarProperty Name="project_ProjectId" ColumnName="project_ProjectId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <AssociationSetMapping Name="AspNetUserRoles" TypeName="Model.AspNetUserRoles" StoreEntitySet="AspNetUserRoles">
+      <EndProperty Name="AspNetRoles">
+        <ScalarProperty Name="Id" ColumnName="RoleId" />
+      </EndProperty>
+      <EndProperty Name="AspNetUsers">
+        <ScalarProperty Name="Id" ColumnName="UserId" />
+      </EndProperty>
+    </AssociationSetMapping>
+    <AssociationSetMapping Name="MaterialOrders" TypeName="Model.MaterialOrders" StoreEntitySet="MaterialOrders">
+      <EndProperty Name="Materials">
+        <ScalarProperty Name="MaterialId" ColumnName="Material_MaterialId" />
+      </EndProperty>
+      <EndProperty Name="Orders">
+        <ScalarProperty Name="OrderId" ColumnName="Order_OrderId" />
+      </EndProperty>
+    </AssociationSetMapping>
+    <AssociationSetMapping Name="OrderProjects" TypeName="Model.OrderProjects" StoreEntitySet="OrderProjects">
+      <EndProperty Name="Orders">
+        <ScalarProperty Name="OrderId" ColumnName="Order_OrderId" />
+      </EndProperty>
+      <EndProperty Name="Projects">
+        <ScalarProperty Name="ProjectId" ColumnName="Project_ProjectId" />
+      </EndProperty>
+    </AssociationSetMapping>
+    <AssociationSetMapping Name="SupplierMaterials" TypeName="Model.SupplierMaterials" StoreEntitySet="SupplierMaterials">
+      <EndProperty Name="Materials">
+        <ScalarProperty Name="MaterialId" ColumnName="Material_MaterialId" />
+      </EndProperty>
+      <EndProperty Name="Organizations">
+        <ScalarProperty Name="OrganizationId" ColumnName="Supplier_OrganizationId" />
+      </EndProperty>
+    </AssociationSetMapping>
+  </EntityContainerMapping>
+</Mapping>

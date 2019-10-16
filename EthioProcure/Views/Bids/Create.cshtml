@@ -1,0 +1,178 @@
+﻿@model EthioProcure.Models.Bid
+
+@{
+    ViewBag.Title = "Create";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+<div class="panel panel-collapse ">
+    <div class="panel-heading panHead"><h3>Create A Bid</h3></div>
+    <div class="panel-body panBod">
+        @using (Html.BeginForm("Create", "Bids", FormMethod.Post,
+                new { enctype = "multipart/form-data" }))
+        {
+            @Html.AntiForgeryToken()
+
+            <div class="form-horizontal">
+                
+                <hr />
+                @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+                <div class="form-group">
+                    @Html.LabelFor(model => model.methodology, htmlAttributes: new { @class = "control-label col-md-2" })
+                    <div class="col-md-10">
+                        @Html.TextAreaFor(model => model.methodology, 5,40, htmlAttributes: new { @class = "form-control textArea maximize " } )
+                        @Html.ValidationMessageFor(model => model.methodology, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    @Html.LabelFor(model => model.implementationPlan, htmlAttributes: new { @class = "control-label col-md-2 " })
+                    <div class="col-md-10">
+                        @Html.TextAreaFor(model => model.implementationPlan, 5, 40, htmlAttributes: new { @class = "form-control textArea maximize " })
+                        @Html.ValidationMessageFor(model => model.implementationPlan, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    @Html.LabelFor(model => model.workSchedule, htmlAttributes: new { @class = "control-label col-md-2" })
+                    <div class="col-md-10">
+                        @Html.TextAreaFor(model => model.workSchedule, 5, 40, htmlAttributes: new { @class = "form-control textArea maximize " })
+                        @Html.ValidationMessageFor(model => model.workSchedule, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    @Html.LabelFor(model => model.bidSecurity, htmlAttributes: new { @class = "control-label col-md-2" })
+                    <div class="col-md-10">
+                        <input type="file" name="bidSecFile" class="form-control maximize theme" />
+                        @Html.ValidationMessageFor(model => model.bidSecurity, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    @Html.LabelFor(model => model.certificateOfSiteVisit, htmlAttributes: new { @class = "control-label col-md-2" })
+                    <div class="col-md-10">
+                        <input type="file" name="csvFile" class="form-control maximize theme" />
+                        @Html.ValidationMessageFor(model => model.certificateOfSiteVisit, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    @Html.LabelFor(model => model.TenderId, "Project", htmlAttributes: new { @class = "control-label col-md-2" })
+                    <div class="col-md-10">
+                        @Html.DropDownList("TenderId", null, htmlAttributes: new { @class = "form-control disable maximize theme" })
+                        @Html.ValidationMessageFor(model => model.TenderId, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    @Html.LabelFor(model => model.OrganizationId, "Contractor", htmlAttributes: new { @class = "control-label col-md-2" })
+					<div class="col-md-10">
+						@Html.DropDownList("OrganizationId", null, htmlAttributes: new { @class = "form-control maximize theme disable" })
+						@Html.ValidationMessageFor(model => model.OrganizationId, "", new { @class = "text-danger" })
+					</div>
+                </div>
+
+                <hr>
+                <h3>Bill of Quantity</h3>
+                <p>Complete this bill of quantity as a financial proposal</p>
+                <br />
+                <table id="fullTbl" class="table table-striped table-hover table-bordered">
+                    <tr>
+                        <th>No.</th>
+                        <th>Description</th>
+                        <th>Unit</th>
+                        <th>Quantity</th>
+                        <th>Unit Rate</th>
+                        <th>Total Amount</th>
+                        <th>Unit Rate Point</th>
+                    </tr>
+                    <tbody id="newRow"></tbody>
+                </table>
+                <button type="button" id="btnSave" class="btn btn-default">Done</button>
+                <p id="message"></p>
+                @Html.EditorFor(model => model.completedBillofQuantity, new { htmlAttributes = new { @class = "form-control hiBid" } })
+                <p id="bill" hidden>@ViewBag.boq</p>
+
+                <div class="form-group">
+                    <div class="col-md-10"></div>
+                    <div class="col-md-2">
+                        <input type="submit" value="Submit Bid" class="btn btn-default" />
+                    </div>
+                </div>
+            </div>
+        }
+    </div>
+</div>
+
+
+
+
+<link href="~/Content/themes/base/jquery-ui.min.css" rel="stylesheet" />
+<link href="~/Content/jquery.datetimepicker.min.css" rel="stylesheet" />
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+    <script src="~/Scripts/jquery-ui-1.12.1.min.js"></script>
+    <script src="~/Scripts/jquery.datetimepicker.full.js"></script>
+
+    <script>
+         $(function () {
+            $('#btnSave').click(function () {
+
+                //To convert html table to json
+                var json = '{';
+                var otArr = [];
+                var tbl2 = $('#newRow tr').each(function (i) {
+                    x = $(this).children();
+                    var itArr = [];
+                    x.each(function () {
+                        itArr.push('"' + $(this).text() + '"');
+                    });
+                    otArr.push('"' + i + '": [' + itArr.join(',') + ']');
+                });
+                json += otArr.join(",") + '}';
+
+                var jsobj = JSON.parse(json);
+                //parse changes Json to javscript object or string to Json.
+
+                var str = JSON.stringify(json);
+                //changes JSOn to string
+
+
+                $(".hiBid").val(str);
+
+                $("#message").append("Table is loaded...")
+
+            });
+
+        });
+
+        $(function () {
+
+            //Retrive table in the form of a string
+            var str = $("#bill").text();
+            
+            //To parse a string to js obj parse twice
+            var back = JSON.parse(str);
+            var twice = JSON.parse(back);
+
+            var res = '';
+            $.each(twice, function (i, j) {
+                res += '<tr>';
+                $.each(twice[i], function (j) {
+                    if(j!=4)
+                        res += '<td>' + twice[i][j] + '</td>';
+                    else
+                        res += '<td contenteditable="true">' + twice[i][j] + '</td>';
+                });
+                res += '</tr>';
+            });
+
+            $('#newRow').append(res);
+        });
+
+    </script>
+
+}

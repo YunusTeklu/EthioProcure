@@ -1,0 +1,35 @@
+﻿
+@{
+    ViewBag.Title = "Select Organization";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+<div class="panel panel-collapse">
+    <div class="panel-heading panHead"><h3>Select Organization Type</h3></div>
+    <div class="panel-body panBod">
+        <h3 class="center">Welcome to Ethio-Procure<br>Select an organization type to register</h3>
+        <br/><br /><br />
+        <div class="row">
+            <div class="col-md-4 center">
+                <a href="@Url.Action("Create","Contractors" )">
+                    <img src="~/Images/contractor2.jpg" class="img-thumbnail img-responsive selectImg" />
+                    <h6>Contractor</h6>
+                </a>
+            </div>
+            <div class="col-md-4 center">
+                <a href="@Url.Action("Create","Consultants" )">
+                    <img src="~/Images/consultant.jpg" class="img-thumbnail img-responsive selectImg" />
+                    <h6>Consultant</h6>
+                </a>
+            </div>
+            <div class="col-md-4 center">
+                <a href="@Url.Action("Create","PublicBodies" )">
+                    <img src="~/Images/government.png" class="img-thumbnail img-responsive selectImg" />
+                    <h6>Public Body</h6>
+                </a>
+            </div>
+        </div>
+        <br /><br /><br /><br/>
+    </div>
+</div>

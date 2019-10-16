@@ -1,0 +1,62 @@
+﻿@model IEnumerable<EthioProcure.Models.Supplier>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Suppliers</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create", null, new { @class = "btn btn-default" })
+</p>
+<table class="table table-hover table-striped table-responsive">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.organizationName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.email)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.telephone)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.tinNo)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.bankName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.accountNo)
+        </th>
+        
+    </tr>
+
+@foreach (var item in Model) {
+    <tr onclick="window.location='@Url.Action("Details", new { id= item.OrganizationId} )'">
+        <td contenteditable="true">
+            @Html.DisplayFor(modelItem => item.organizationName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.email)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.telephone)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.tinNo)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.bankName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.accountNo)
+        </td>
+        
+    </tr>
+}
+
+</table>
+
+

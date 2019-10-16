@@ -1,0 +1,112 @@
+﻿@model EthioProcure.Models.Consultant
+
+@{
+    ViewBag.Title = "Edit";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+
+<div class="panel panel-collapse">
+    <div class="panel-heading panHead"><h3>Edit Consultant</h3></div>
+    <div class="panel-body panBod">
+        @using (Html.BeginForm("Edit", "Consultants", FormMethod.Post,
+                new { enctype = "multipart/form-data" }))
+        {
+            @Html.AntiForgeryToken()
+
+            <div class="form-horizontal">
+
+                <hr />
+                @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+                @Html.HiddenFor(model => model.OrganizationId)
+                <div class="row">
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            @Html.LabelFor(model => model.organizationName, htmlAttributes: new { @class = "control-label col-md-4" })
+                            <div class="col-md-8">
+                                @Html.EditorFor(model => model.organizationName, new { htmlAttributes = new { @class = "form-control theme", @placeholder = "Organization Name" } })
+                                @Html.ValidationMessageFor(model => model.organizationName, "", new { @class = "text-danger" })
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            @Html.LabelFor(model => model.email, htmlAttributes: new { @class = "control-label col-md-4" })
+                            <div class="col-md-8">
+                                @Html.EditorFor(model => model.email, new { htmlAttributes = new { @class = "form-control theme", @placeholder = "Email" } })
+                                @Html.ValidationMessageFor(model => model.email, "", new { @class = "text-danger" })
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            @Html.LabelFor(model => model.telephone, htmlAttributes: new { @class = "control-label col-md-4" })
+                            <div class="col-md-8">
+                                @Html.EditorFor(model => model.telephone, new { htmlAttributes = new { @class = "form-control theme", @placeholder = "Telephone" } })
+                                @Html.ValidationMessageFor(model => model.telephone, "", new { @class = "text-danger" })
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            @Html.LabelFor(model => model.logo, htmlAttributes: new { @class = "control-label col-md-4" })
+                            <div class="col-md-8">
+                                <input type="file" name="logoFile" class="form-control theme" />
+                                @Html.ValidationMessageFor(model => model.logo, "", new { @class = "text-danger" })
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            @Html.LabelFor(model => model.tinReg, htmlAttributes: new { @class = "control-label col-md-4" })
+                            <div class="col-md-8">
+                                <input type="file" name="trFile" class="form-control theme" />
+                                @Html.ValidationMessageFor(model => model.tinReg, "", new { @class = "text-danger" })
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            @Html.LabelFor(model => model.businessLicence, htmlAttributes: new { @class = "control-label col-md-4" })
+                            <div class="col-md-8">
+                                <input type="file" name="blFile" class="form-control theme" />
+                                @Html.ValidationMessageFor(model => model.businessLicence, "", new { @class = "text-danger" })
+                            </div>
+                        </div>
+
+
+                        <div class="form-group">
+                            @Html.LabelFor(model => model.consultancyContract, htmlAttributes: new { @class = "control-label col-md-4" })
+                            <div class="col-md-8">
+                                <input type="file" name="ccFile" class="form-control theme" />
+                                @Html.ValidationMessageFor(model => model.consultancyContract, "", new { @class = "text-danger" })
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <p>Description</p>
+                            <div class="col-md-12">
+                                @Html.TextAreaFor(model => model.description, 15, 40, new { @class = "form-control textArea maximize", @placeholder = "Company Information..." })
+                                @Html.ValidationMessageFor(model => model.description, "", new { @class = "text-danger" })
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <div class="col-md-10"></div>
+                    <div class=" col-md-2">
+                        <input type="submit" value="Save Changes" class="btn btn-default" />
+                    </div>
+                </div>
+            </div>
+        }
+    </div>
+</div>
+
+
+<div>
+    @Html.ActionLink("Back to List", "Index")
+</div>
+
+        @section Scripts {
+            @Scripts.Render("~/bundles/jqueryval")
+        }

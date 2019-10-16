@@ -1,0 +1,31 @@
+﻿@model EthioProcure.Models.Supplier
+
+@{
+    ViewBag.Title = "Delete";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<div class="row">
+    <div class="col-md-3">
+        <ul class="sidebar-nav">
+            <li>@Html.ActionLink("Contractors", "Index", "Contractors")</li>
+            <li>@Html.ActionLink("Consultants", "Index", "Consultants")</li>
+            <li>@Html.ActionLink("Contact", "Contact", "Home")</li>
+        </ul>
+    </div>
+    <div class="col-md-9">
+        <h2>Delete</h2>
+
+        <h3>Are you sure you want to delete @Html.DisplayNameFor(model => model.organizationName) ?</h3>
+        <div>
+            <hr />
+            @using (Html.BeginForm()) {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <input type="submit" value="Delete" class="btn btn-default" /> |
+            @Html.ActionLink("Back to List", "Index")
+        </div>
+        }
+        </div>
+    </div>
+</div>

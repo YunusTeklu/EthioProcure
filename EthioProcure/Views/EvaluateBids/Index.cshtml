@@ -1,0 +1,554 @@
+﻿@model IEnumerable<EthioProcure.Models.EvaluateBid>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="blackness">
+    <h2>Evaluation Report of @ViewBag.pName </h2>
+    <h4>Evaluated using @ViewBag.pEval Method</h4>
+    <h3>Technical Proposal Evaluation</h3>
+    <div class="pre-scrollable">
+        <table class="table table-hover table-striped table-responsive">
+            <tr>
+                <th>
+                    @Html.DisplayNameFor(model => model.bid.contractor.organizationName)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.contractorTypeScore)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.contractorLevelScore)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.methodologyScore)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.workScheduleScore)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.implementationPlanScore)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.tinScore)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.busLiScore)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.cocScore)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.audRepScore)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.machCertScore)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.profCertScore)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.perfLetScore)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.taxClrScore)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.vatRegScore)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.fppaRegScore)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.bidSecScore)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.csvScore)
+                </th>
+                <th>
+                    Total
+                </th>
+            </tr>
+            @{
+                String[] passed = new string[20];
+                String[] disqualified = new string[20];
+                int[] scores = new int[20];
+                int[] passedScores = new int[20];
+                int[] disqualifiedScores = new int[20];
+                int i = 0;
+                float[] techEval = new float[20];
+                //int ps = 0;used in least bidder to control passed scores
+                int ds = 0;//used in least bidder to control disqualified scores
+                String[] passedBoq = new string[20];
+            }
+            @foreach (var item in Model)
+            {
+                <tr onclick="window.location='@Url.Action("Details", "Bids", new { id = item.BidId })'">
+                    <td>
+                        @Html.DisplayFor(modelItem => item.bid.contractor.organizationName)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.contractorTypeScore)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.contractorLevelScore)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.methodologyScore)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.workScheduleScore)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.implementationPlanScore)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.tinScore)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.busLiScore)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.cocScore)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.audRepScore)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.machCertScore)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.profCertScore)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.perfLetScore)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.taxClrScore)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.vatRegScore)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.fppaRegScore)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.bidSecScore)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.csvScore)
+                    </td>
+                    <td>
+                        @{
+
+                            int total = 0;
+                            if ((Convert.ToInt32(item.busLiScore) != 0) ||
+                                (Convert.ToInt32(item.machCertScore) != 0) ||
+                                (Convert.ToInt32(item.profCertScore) != 0) ||
+                                (Convert.ToInt32(item.taxClrScore) != 0) ||
+                                (Convert.ToInt32(item.tinScore) != 0) ||
+                                (Convert.ToInt32(item.vatRegScore) != 0) ||
+                                (Convert.ToInt32(item.bidSecScore) != 0))
+                            {
+                                total = Convert.ToInt32(item.busLiScore) +
+                                    Convert.ToInt32(item.cocScore) +
+                                    Convert.ToInt32(item.fppaRegScore) +
+                                    Convert.ToInt32(item.machCertScore) +
+                                    Convert.ToInt32(item.perfLetScore) +
+                                    Convert.ToInt32(item.profCertScore) +
+                                    Convert.ToInt32(item.taxClrScore) +
+                                    Convert.ToInt32(item.tinScore) +
+                                    Convert.ToInt32(item.vatRegScore) +
+                                    Convert.ToInt32(item.bidSecScore) +
+                                    Convert.ToInt32(item.csvScore) +
+                                    Convert.ToInt32(item.audRepScore) +
+                                    item.workScheduleScore +
+                                    item.profQuaScore +
+                                    item.methodologyScore +
+                                    item.implementationPlanScore +
+                                    item.equipScore +
+                                    item.contractorLevelScore +
+                                    item.contractorTypeScore;
+
+                                passed[i] = item.bid.contractor.organizationName;
+                                passedBoq[i] = item.bid.completedBillofQuantity;
+                                passedScores[i] = total;
+                                scores[i] = total;
+                                i++;
+                            }
+                            else
+                            {
+                                disqualified[i] = item.bid.contractor.organizationName;
+                                disqualifiedScores[i] = total;
+                                scores[i] = total;
+                                i++;
+                            }
+                        }
+                        @total
+                    </td>
+                </tr>
+                            }
+        </table>
+    </div>
+
+    <div>
+        @{
+
+            <div class="row">
+                <div class="col-md-6">
+                    <h6>Qualified Candudates</h6>
+                    <p>Passed to compete in the financial bid for fulfillement of criteria.</p>
+                    <dl class="dl-horizontal">
+                        @for (i = 0; i < passed.Length; i++)
+                        {
+                            if (passed[i] != null)
+                            {
+                                <dt>@passed[i]</dt>
+                                if (ViewBag.pEval == "Weighted-Average")
+                                {
+                                    techEval[i] = passedScores[i] * (float)0.731;
+                                    <dd>@passedScores[i] x 0.731= @techEval[i]</dd>
+                                }
+                                else
+                                {
+                                    <dd>@passedScores[i]</dd>
+                                }
+                            }
+
+                        }
+                    </dl>
+                </div>
+                <div class="col-md-6">
+                    <h6>Disqualified Biders</h6>
+                    <p>Disqualified for missing mandatory files or having a total score of less than half the required score.</p>
+                    <dl class="dl-horizontal">
+                        @foreach (var x in disqualified)
+                        {
+                            if (x != null)
+                            {
+                                <dt>@x</dt>
+                                <dd>@disqualifiedScores[ds]</dd>
+                            }
+                            ds++;
+                        }
+                    </dl>
+                </div>
+            </div>
+        }
+    </div>
+
+
+
+
+    <h3>Finsncial Proposal Evaluation</h3>
+    @{
+
+        if (ViewBag.pContract == "Lump Sum Contract")
+        {
+            <div class="pre-scrollable">
+                <table class="table table-hover table-striped table-responsive">
+                    <tr>
+                        <th></th>
+                        @for (i = 0; i < passed.Length; i++)
+                        {
+                            if (passed[i] != null)
+                            {
+                                <th>
+                                    @passed[i]
+                                </th>
+                            }
+
+                        }
+                    </tr>
+                    <tbody id="lumpSum"></tbody>
+                </table>
+            </div>
+
+            <div>
+                <h5>Results of financial evaluation</h5>
+                @if (ViewBag.pEval == "Least Bidder")
+                {
+                    <h4 id="hlslb"></h4>
+                }
+                else if (ViewBag.pEval == "Weighted-Average")
+                {
+                    <dl class="dl-horizontal" id="lswa"></dl>
+                    <h4 id="hlswa"></h4>
+                }
+
+            </div>
+        }
+        else if (ViewBag.pContract == "Unit Rate Contract")
+        {
+            <div class="pre-scrollable">
+                <table class="table table-hover table-striped table-responsive">
+                    <tr>
+                        <th>Work Description</th>
+                        <th>Full Point</th>
+                        @for (i = 0; i < passed.Length; i++)
+                        {
+                            if (passed[i] != null)
+                            {
+                                <th>
+                                    @passed[i]
+                                </th>
+                            }
+                        }
+                    </tr>
+                    <tbody id="unitRate"></tbody>
+                </table>
+            </div>
+
+            <div>
+                <h5>Results of financial evaluation</h5>
+
+                @if (ViewBag.pEval == "Least Bidder")
+                {
+                    <dl class="dl-horizontal" id="urlb"></dl>
+                    <h4 id="hurlb"></h4>
+                }
+                else if (ViewBag.pEval == "Weighted-Average")
+                {
+                    <dl class="dl-horizontal" id="urwa"></dl>
+                    <h4 id="hurwa"></h4>
+                }
+
+            </div>
+
+        }
+    }
+</div>
+
+
+
+@section Scripts {
+    <script>
+        $(function () {
+            var boqArray= @Html.Raw(Json.Encode(passedBoq));
+
+            var back=null;
+            var twice=null;
+            var res='';
+            var temp=JSON.parse(boqArray[0]);
+            var works= JSON.parse(temp);
+            var subTot = 0;
+            var totBid=0;
+            var unitRates=[];
+            var fullPoints=[];
+            var range=0;
+            var difference=0;
+            var finalPoints=[];
+            var agrigate=[];
+            var list='';
+            var message='';
+            var maxIndex = 0;
+            var passedSco= @Html.Raw(Json.Encode(passedScores));
+            var passedNames= @Html.Raw(Json.Encode(passed));
+
+
+            if( "@ViewBag.pContract"== "Unit Rate Contract")
+            {
+                //For unit rate financial evaluation
+                $.each(works, function (i) {
+                    if(works[i]!=null)
+                    {
+                        res += '<tr>';
+                        res += '<td>'+works[i][1]+'</td>';
+                        res += '<td>'+works[i][6]+'</td>';
+                        unitRates[i]=[];
+                        fullPoints[i]=works[i][6];
+
+                        $.each(boqArray, function(k){
+                            if(boqArray[k]!=null)
+                            {
+                                //To parse a string to js obj parse twice
+                                back = JSON.parse(boqArray[k]);
+                                twice = JSON.parse(back);
+                                //To insert the unit rate
+                                res+= '<td>'+twice[i][4]+'</td>';
+                                unitRates[i][k]=twice[i][4];
+                                
+                            }
+                        });
+                        res+='</tr>';
+                    }
+                });
+                $('#unitRate').append(res);
+
+                
+                //Accessing unitrate array and scaling the points
+                $.each(unitRates,function(i,j){
+                    //To find the max of unit rate rows
+                    var max = Number(unitRates[i][0]);
+                    
+                    $.each(unitRates[i],function(j){
+                        if (Number(unitRates[i][j]) > max) {
+                            max = Number(unitRates[i][j]);
+                        }
+                    });
+                        
+                    //To find the min of unit rate rows
+                    var min =Number( unitRates[i][0]);
+                    
+                    $.each(unitRates[i],function(j){
+                        if (Number(unitRates[i][j]) < min) {
+                            min = Number(unitRates[i][j]);
+                        }
+                    });
+                    range=max-min;
+                    finalPoints[i]=[];
+                    $.each(unitRates[i],function(j){
+                        difference= unitRates[i][j]- min;
+                        finalPoints[i][j]=fullPoints[i]*(1-(difference/range));
+                        
+                    });
+                });
+                
+                console.log(finalPoints[0].length);
+                //Agrigate of the final points
+                for(var k=0; k<finalPoints[0].length;k++){
+                    agrigate[k]=0;
+                    $.each(finalPoints, function(i,j) {
+                        $.each(finalPoints[i], function(j) {
+                            if(k==j){
+                                agrigate[k]+=finalPoints[i][j];
+                            }
+                        });
+                     });
+                }
+                
+                //For results of financial evaluation witha unit rate contract
+                if("@ViewBag.pEval" == "Least Bidder")
+                {
+                    $.each(agrigate, function(i){
+                        if(passedNames[i]!=null){
+                            list+='<dt>'+passedNames[i]+'</dt>';
+                            list+='<dd>'+Number(agrigate[i])+'</dd>';
+                        }
+                        
+                    });
+                    $('#urlb').append(list);
+
+                    //To find the least bidder choose the highest agrigate
+                    var max =Number( agrigate[0]);
+
+                    for (var i = 1; i < agrigate.length; i++) {
+                        if (Number(agrigate[i]) > max) {
+                            maxIndex = i;
+                            max = Number(agrigate[i]);
+                        }
+                    }
+                    message= '  Congradulation to '+passedNames[maxIndex]+' for winning the contract of this project.';
+                    $('#hurlb').append(message);
+                }
+                else
+                {
+                    var totFullPt=0;
+                    var outOf=0;
+                    var finList=[];
+                    var finScore=[];
+
+                    //To find the full point agrigate
+                    $.each(fullPoints, function(i){
+                        totFullPt+= fullPoints[i];
+                    });
+                    outOf= 40/totFullPt;
+                    
+                    $.each(agrigate, function(i){
+                        list+='<dt>'+passedNames[i]+'</dt>';
+                        finList[i]= agrigate[i]* outOf;
+                        finScore[i]=finList[i]+ passedSco[i];
+                        list+='<dd>'+agrigate[i]+' x '+outOf+' = '+'finList[i]'+' + '+passedSco[i]+' = '+finScore[i]+'</dd>';
+                    });
+                    $('#urwa').append(list);
+                    
+                    //To find the highest total score
+                    var max = finScore[0];
+
+                    for (var i = 1; i < finScore.length; i++) {
+                        if (finScore[i] > max) {
+                            maxIndex = i;
+                            max = finScore[i];
+                        }
+                    }
+                    message= '  Congradulation to '+passedName[maxIndex]+'for winning the contract of this project.';
+                    $('#hurwa').append(message);
+                }
+            }
+            else
+            {
+                //For lump sum financial evaluation
+                var totalScore=[];
+                res += '<tr>';
+                res += '<td>Total Offers</td>';
+                $.each(boqArray, function (i) {
+                    if(boqArray[i]!=null)
+                    {
+                        back=JSON.parse(boqArray[i]);
+                        twice=JSON.parse(back);
+                        $.each(twice, function (j) {
+                            subTot+= twice[j][3] * twice[j][4];
+                        });
+                        totBid = subTot * 0.15;
+                        totalScore[i]=totBid;
+                        res += '<td>' + totBid + '</td>';
+                        
+                    }
+                });
+                res += '</tr>';
+                $('#lumpSum').append(res);
+
+                //For results of financial evaluation witha lump sum contract
+                if("@ViewBag.pEval" == "Least Bidder")
+                {
+                    //To find the lowest value
+                    var min = totalScore[0];
+                    var minIndex=0;
+
+                    for (var i = 1; i < totalScore.length; i++) {
+                        if (totalScore[i] < min) {
+                            minIndex = i;
+                            min = totalScore[i];
+                        }
+                    }
+                    message= '  Congradulation to '+passedName[minIndex]+'for winning the contract of this project.';
+                    $('#hlslb').append(message);
+                }
+                else
+                {
+                    var min = Number(totalScore[0]);
+
+                    for (var i = 1; i < totalScore.length; i++) {
+                        if (Number(totalScore[i]) < min) {
+                            min = Number(totalScore[i]);
+                        }
+                    }
+                    var ratio=40/min;
+                    var finList=[];
+                    var finScore=[];
+
+                    $.each(totalScore, function(i){
+                        finList[i]= Number(totalScore[i])*Number(ratio);
+                        finScore[i]= Number(finList[i])+Number(passedSco[i]);
+                        list+='<dt>'+passedNames[i]+'</dt>';
+                        list+='<dd>'+finList[i]+' + '+passedSco[i]+' = '+finScore[i]+'</dd>';
+                    });
+                    $('#lswa').append(list);
+
+                    var max = Number(finScore[0]);
+
+                    for (var i = 1; i < finScore.length; i++) {
+                        if (Number(finScore[i]) > max) {
+                            maxIndex = i;
+                            max = Number(finScore[i]);
+                        }
+                    }
+                    message= '  Congradulation to '+passedNames[maxIndex]+' for winning the contract of this project.';
+                    $('#hlswa').append(message);
+                }
+            }
+
+        });
+    </script>
+}

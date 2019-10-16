@@ -1,0 +1,320 @@
+﻿@model EthioProcure.Models.Tender
+
+@{
+    ViewBag.Title = "Edit";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+
+
+<div class="panel panel-collapse">
+    <div class="panel-heading panHead"><h3>Edit Tender</h3></div>
+    <div class="panel-body panBod">
+        @using (Html.BeginForm("Edit", "Tenders", FormMethod.Post,
+            new { enctype = "multipart/form-data" }))
+        {
+            @Html.AntiForgeryToken()
+
+            <div class="form-horizontal">
+
+                <hr class="" />
+                @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+                @Html.HiddenFor(model => model.TenderId)
+
+                <div class="row">
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            @Html.LabelFor(model => model.projectTitle, htmlAttributes: new { @class = "control-label col-md-4" })
+                            <div class="col-md-8">
+                                @Html.EditorFor(model => model.projectTitle, new { htmlAttributes = new { @class = "form-control theme" } })
+                                @Html.ValidationMessageFor(model => model.projectTitle, "", new { @class = "text-danger" })
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            @Html.LabelFor(model => model.projectScope, htmlAttributes: new { @class = "control-label col-md-4" })
+                            <div class="col-md-8">
+                                @Html.DropDownListFor(model => model.projectScope, new SelectList(
+                                new List<object> {
+                                        new {value="National Competative Bid(NCB)", text="National Competative Bid(NCB)"},
+                                        new {value="International Competative Bid(ICB)", text="International Competative Bid(ICB)"},
+                                        }, "value", "text"),
+                                     "Select Project Scope ",
+                                     new { @class = "form-control theme" })
+                                @Html.ValidationMessageFor(model => model.projectScope, "", new { @class = "text-danger" })
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            @Html.LabelFor(model => model.openingDate, htmlAttributes: new { @class = "control-label col-md-4" })
+                            <div class="col-md-8">
+                                @Html.EditorFor(model => model.openingDate, new { htmlAttributes = new { @class = "form-control dtpicker theme" } })
+                                @Html.ValidationMessageFor(model => model.openingDate, "", new { @class = "text-danger" })
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            @Html.LabelFor(model => model.submissionDeadline, htmlAttributes: new { @class = "control-label col-md-4" })
+                            <div class="col-md-8">
+                                @Html.EditorFor(model => model.submissionDeadline, new { htmlAttributes = new { @class = "form-control dtpicker theme" } })
+                                @Html.ValidationMessageFor(model => model.submissionDeadline, "", new { @class = "text-danger" })
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            @Html.LabelFor(model => model.contractType, htmlAttributes: new { @class = "control-label col-md-4" })
+                            <div class="col-md-8">
+                                @Html.DropDownListFor(model => model.contractType, new SelectList(
+                                new List<object> {
+                                        new {value="Lump Sum Contract", text="Lump Sum Contract"},
+                                        new {value="Unit Rate Contract", text="Unit Rate Contract"},
+                                        }, "value", "text"),
+                                     "Select Contract Type ",
+                                     new { @class = "form-control theme urSelected" })
+                                @Html.ValidationMessageFor(model => model.contractType, "", new { @class = "text-danger" })
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            @Html.LabelFor(model => model.procurementMethod, htmlAttributes: new { @class = "control-label col-md-4" })
+                            <div class="col-md-8">
+                                @Html.DropDownListFor(model => model.procurementMethod, new SelectList(
+                                new List<object> {
+                                        new {value="Open Procurement", text="Open Procurement"},
+                                        new {value="Limited Procurement", text="Limited Procurement"},
+                                        }, "value", "text"),
+                                     "Select Procurement Method ",
+                                     new { @class = "form-control theme" })
+                                @Html.ValidationMessageFor(model => model.procurementMethod, "", new { @class = "text-danger" })
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            @Html.LabelFor(model => model.bidSecurity, htmlAttributes: new { @class = "control-label col-md-4" })
+                            <div class="col-md-8">
+                                @Html.EditorFor(model => model.bidSecurity, new { htmlAttributes = new { @class = "form-control theme" } })
+                                @Html.ValidationMessageFor(model => model.bidSecurity, "", new { @class = "text-danger" })
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            @Html.LabelFor(model => model.requiredContractors, htmlAttributes: new { @class = "control-label col-md-4" })
+                            <div class="col-md-8">
+                                @Html.EditorFor(model => model.requiredContractors, new { htmlAttributes = new { @class = "form-control theme" } })
+                                @Html.ValidationMessageFor(model => model.requiredContractors, "", new { @class = "text-danger" })
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            @Html.LabelFor(model => model.contractorType, htmlAttributes: new { @class = "control-label col-md-4" })
+                            <div class="col-md-8">
+                                @Html.DropDownListFor(model => model.contractorType, new SelectList(
+                                    new List<object> {
+                                        new {value="General Contractor (GC)", text="General Contractor (GC)"},
+                                        new {value="Building Contractor (BC)", text="Building Contractor (BC)"},
+                                        new {value="Road Contractor (RC)", text="Road Contractor (RC)"}
+                                        }, "value", "text"),
+                                        "Select Contractor Type",
+                                        new { @class = "form-control theme" })
+                                @Html.ValidationMessageFor(model => model.contractorType, "", new { @class = "text-danger" })
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            @Html.LabelFor(model => model.evaluationMethod, htmlAttributes: new { @class = "control-label col-md-4" })
+                            <div class="col-md-8">
+                                @Html.DropDownListFor(model => model.evaluationMethod, new SelectList(
+                                new List<object> {
+                                        new {value="Least Bidder", text="Least Bidder"},
+                                        new {value="Weighted-Average", text="Weighted-Average"},
+                                        }, "value", "text"),
+                                     "Select Evaluation Method ",
+                                     new { @class = "form-control theme" })
+                                @Html.ValidationMessageFor(model => model.evaluationMethod, "", new { @class = "text-danger" })
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            @Html.LabelFor(model => model.sbd, htmlAttributes: new { @class = "control-label col-md-4" })
+                            <div class="col-md-8">
+                                <input type="file" name="sbdFile" class="form-control theme" />
+                                @Html.ValidationMessageFor(model => model.sbd, "", new { @class = "text-danger" })
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            @Html.LabelFor(model => model.design, htmlAttributes: new { @class = "control-label col-md-4" })
+                            <div class="col-md-8">
+                                <input type="file" name="desFile" class="form-control theme" />
+                                @Html.ValidationMessageFor(model => model.design, "", new { @class = "text-danger" })
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            @Html.LabelFor(model => model.bidValidity, htmlAttributes: new { @class = "control-label col-md-4" })
+                            <div class="col-md-8">
+                                @Html.EditorFor(model => model.bidValidity, new { htmlAttributes = new { @class = "form-control dtpicker theme" } })
+                                @Html.ValidationMessageFor(model => model.bidValidity, "", new { @class = "text-danger" })
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <p class="control-label col-md-4">Public Body</p>
+                            <div class="col-md-8">
+                                @Html.DropDownList("PublicBodyId", null, htmlAttributes: new { @class = "form-control theme" })
+                                @Html.ValidationMessageFor(model => model.publicBody, "", new { @class = "text-danger" })
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <p class="control-label col-md-4">Consultant</p>
+                            <div class="col-md-8">
+                                @Html.DropDownList("ConsultantId", null, htmlAttributes: new { @class = "form-control theme" })
+                                @Html.ValidationMessageFor(model => model.consultant, "", new { @class = "text-danger" })
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+
+
+                <hr>
+                <h3>Bill of Quantity</h3>
+                <p>Specify all the works to be performed on the project with their quantity.</p>
+                <br />
+                <table id="fullTbl" class="table table-striped table-hover table-bordered">
+                    <tr>
+                        <th>No.</th>
+                        <th>Description</th>
+                        <th>Unit</th>
+                        <th>Quantity</th>
+                        <th>Unit Rate</th>
+                        <th>Total Amount</th>
+                        <th>Unit Rate Point</th>
+                    </tr>
+                    <tbody id="newRow">
+                        
+                    </tbody>
+                </table>
+                <button type="button" id="btnAdd" class="btn btn-default">Add a Row</button>
+                <button type="button" id="btnSave" class="btn btn-default">Done</button>
+                <p id="message"></p>
+                @Html.EditorFor(model => model.billOfQuantity, new { htmlAttributes = new { @class = "hiddenInput" } })
+
+                <div class="form-group">
+                    <div class="col-md-10"></div>
+                    <div class="col-md-2">
+                        <input type="submit" id="btnCreate" value="Save Changes" class="btn btn-default" />
+                    </div>
+                </div>
+
+            </div>
+        }
+    </div>
+</div>
+<div>
+    @Html.ActionLink("Back to List", "Index")
+</div>
+
+
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+   
+    <script>
+
+        //Date Picker
+        $(function () {
+            $('.dtpicker').datetimepicker();
+        });
+
+        var code = '<tr contenteditable="true"><td></td><td></td><td></td><td></td><td contenteditable="false"></td><td contenteditable="false"></td><td contenteditable="false"></td></tr>';
+        var codeUr = '<tr contenteditable="true"><td></td><td></td><td></td><td></td><td contenteditable="false"></td><td contenteditable="false"></td><td></td></tr>';
+        var tbl = '';
+
+        //Add Row
+        $(function () {
+            var selectedIten = "";
+            $(".urSelected").change(function () {
+                selectedIten = this.value;
+            });
+            $('#btnAdd').click(function () {
+                if (selectedIten == "Unit Rate Contract") {
+                    $('#newRow').append(codeUr).slideDown;
+                }
+                else {
+                    $('#newRow').append(code).slideDown;
+                }
+
+            });
+        });
+
+     
+        $(function () {
+            $('#btnSave').click(function () {
+
+                //To convert html table to json
+                var json = '{';
+                var otArr = [];
+                var tbl2 = $('#newRow tr').each(function (i) {
+                    x = $(this).children();
+                    var itArr = [];
+                    x.each(function () {
+                        itArr.push('"' + $(this).text() + '"');
+                    });
+                    otArr.push('"' + i + '": [' + itArr.join(',') + ']');
+                });
+                json += otArr.join(",") + '}';
+
+                var jsobj = JSON.parse(json);
+                //parse changes Json to javscript object or string to Json.
+
+                var str = JSON.stringify(json);
+                //changes JSOn to string
+
+
+                $(".hiddenInput").val(str);
+
+                $("#message").append("Table is loaded...")
+
+            });
+
+        });
+
+        $(function () {
+
+            //Retrive table in the form of a string
+            var str = $(".hiddenInput").val();
+            
+            //To parse a string to js obj parse twice
+            var back = JSON.parse(str);
+            var twice = JSON.parse(back);
+            
+
+            var res = '';
+            var selectedIten = "";
+            $(".urSelected").change(function () {
+                selectedIten = this.value;
+            });
+            $.each(twice, function (i, j) {
+                res += '<tr contenteditable="true">';
+                $.each(twice[i], function (j) {
+                    if ((selectedIten == "Unit Rate Contract") && (j==5||j==6))
+                        res += '<td contenteditable="false">' + twice[i][j] + '</td>';
+                    else if((selectedIten != "Unit Rate Contract") && (j>5))
+                        res += '<td contenteditable="false">' + twice[i][j] + '</td>';
+                    else
+                        res += '<td>' + twice[i][j] + '</td>';
+                });
+                res += '</tr>';
+            });
+
+            $('#newRow').append(res);
+        });
+
+    </script>
+
+}

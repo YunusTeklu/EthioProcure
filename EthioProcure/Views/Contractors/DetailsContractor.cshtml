@@ -1,0 +1,285 @@
+﻿@model EthioProcure.Models.Contractor
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="blackness">
+    <h2>
+        <span>
+            <img style=" height: 75px; width: 100px;
+             border: 2px solid #282828;" 
+                 src="@Url.Action("getLogo", new { id= Model.OrganizationId} )" />
+        </span>
+        @Html.DisplayFor(model => model.organizationName)
+    </h2>
+
+    <div>
+        @Html.ActionLink("Edit", "Edit", new { id = Model.OrganizationId }, new { @class = "btn btn-toolbar" })
+        @Html.ActionLink("Delete", "Delete", new { id = Model.OrganizationId }, new { @class = "btn btn-toolbar" })
+        <hr />
+        <div class="row">
+            <div class="col-md-6">
+                <h4>
+                    @Html.DisplayNameFor(model => model.description)
+                </h4>
+
+                <p>
+                    @Html.DisplayFor(model => model.description)
+                </p>
+
+                <h4>
+                    @Html.DisplayNameFor(model => model.contractorLevel)
+                </h4>
+
+                <p>
+                    @Html.DisplayFor(model => model.contractorLevel)
+                </p>
+
+                <h4>
+                    @Html.DisplayNameFor(model => model.contractorType)
+                </h4>
+
+                <p>
+                    @Html.DisplayFor(model => model.contractorType)
+                </p>
+
+
+            </div>
+
+            <div class="col-md-6">
+                <img style=" margin-left:25%; margin-right: 25%;
+                     height: 400px; width: 400px;"
+                     src="@Url.Action("getOrgStruct", new { id= Model.OrganizationId} )" />
+                <br>
+                <h3>Contact us</h3>
+                <table class="table table-hover table-striped table-responsive table-bordered">
+                    <tr>
+                        <td>@Html.DisplayNameFor(model => model.email)</td>
+                        <td>@Html.DisplayFor(model => model.email)</td>
+                    </tr>
+                    <tr>
+                        <td>@Html.DisplayNameFor(model => model.telephone)</td>
+                        <td>@Html.DisplayFor(model => model.telephone)</td>
+                    </tr>
+                </table>
+
+                <br>
+                <h4>Annual Turnover</h4>
+                <table class="table table-striped table-hover table-bordered">
+                    <tr>
+                        <th>Year</th>
+                        <th>Amount and Currency</th>
+                    </tr>
+                    <tbody id="newRowAt"></tbody>
+                </table>
+                @Html.EditorFor(model => model.annualTurnover, new { htmlAttributes = new { @class = "hiddenInputAt" } })
+
+
+            </div>
+        </div>
+
+        <div>
+            <br>
+            <h4>Files</h4>
+            <table class="table table-hover table-striped table-responsive table-bordered">
+                <tr>
+                    <th>File Description</th>
+                    <th>File Name</th>
+                    <th>Download</th>
+                </tr>
+                <tr>
+                    <td>@Html.DisplayNameFor(model => model.tinReg)</td>
+                    <td>@Html.DisplayFor(model => model.tinName)</td>
+                    <td>
+                        <a href="@Url.Action("download/tr", new { id= Model.OrganizationId} )" class="btn btn-toolbar">
+                            Download File
+                        </a>
+                    </td>
+                </tr>
+                <tr>
+                    <td>@Html.DisplayNameFor(model => model.businessLicence)</td>
+                    <td>@Html.DisplayFor(model => model.blName)</td>
+                    <td>
+                        <a href="@Url.Action("download/bl", new { id= Model.OrganizationId} )" class="btn btn-toolbar">
+                            Download File
+                        </a>
+                    </td>
+                </tr>
+                <tr>
+                    <td>@Html.DisplayNameFor(model => model.certificateOfCompetency)</td>
+                    <td>@Html.DisplayFor(model => model.cocName)</td>
+                    <td>
+                        <a href="@Url.Action("download/coc", new { id= Model.OrganizationId} )" class="btn btn-toolbar">
+                            Download File
+                        </a>
+                    </td>
+                </tr>
+                <tr>
+                    <td>@Html.DisplayNameFor(model => model.auditReport)</td>
+                    <td>@Html.DisplayFor(model => model.arName)</td>
+                    <td>
+                        <a href="@Url.Action("download/ar", new { id= Model.OrganizationId} )" class="btn btn-toolbar">
+                            Download File
+                        </a>
+                    </td>
+                </tr>
+                <tr>
+                    <td>@Html.DisplayNameFor(model => model.machinaryCertificate)</td>
+                    <td>@Html.DisplayFor(model => model.mcName)</td>
+                    <td>
+                        <a href="@Url.Action("download/mc", new { id= Model.OrganizationId} )" class="btn btn-toolbar">
+                            Download File
+                        </a>
+                    </td>
+                </tr>
+                <tr>
+                    <td>@Html.DisplayNameFor(model => model.staffCV)</td>
+                    <td>@Html.DisplayFor(model => model.scName)</td>
+                    <td>
+                        <a href="@Url.Action("download/sc", new { id= Model.OrganizationId} )" class="btn btn-toolbar">
+                            Download File
+                        </a>
+                    </td>
+                </tr>
+                <tr>
+                    <td>@Html.DisplayNameFor(model => model.performanceletter)</td>
+                    <td>@Html.DisplayFor(model => model.plName)</td>
+                    <td>
+                        <a href="@Url.Action("download/pl", new { id= Model.OrganizationId} )" class="btn btn-toolbar">
+                            Download File
+                        </a>
+                    </td>
+                </tr>
+                <tr>
+                    <td>@Html.DisplayNameFor(model => model.taxClearance)</td>
+                    <td>@Html.DisplayFor(model => model.taxClrName)</td>
+                    <td>
+                        <a href="@Url.Action("download/tc", new { id= Model.OrganizationId} )" class="btn btn-toolbar">
+                            Download File
+                        </a>
+                    </td>
+                </tr>
+                <tr>
+                    <td>@Html.DisplayNameFor(model => model.vatRegistration)</td>
+                    <td>@Html.DisplayFor(model => model.vatRagName)</td>
+                    <td>
+                        <a href="@Url.Action("download/vr", new { id= Model.OrganizationId} )" class="btn btn-toolbar">
+                            Download File
+                        </a>
+                    </td>
+                </tr>
+                <tr>
+                    <td>@Html.DisplayNameFor(model => model.fppaReg)</td>
+                    <td>@Html.DisplayFor(model => model.fppaRegName)</td>
+                    <td>
+                        <a href="@Url.Action("download/fr", new { id= Model.OrganizationId} )" class="btn btn-toolbar">
+                            Download File
+                        </a>
+                    </td>
+                </tr>
+            </table>
+
+            <br />
+            <h4>Proofessional Qualifications</h4>
+            <table class="table table-striped table-hover table-bordered">
+                <tr>
+                    <th>No.</th>
+                    <th>Name</th>
+                    <th>Position</th>
+                    <th>Qualifications</th>
+                    <th>Years of Experience</th>
+                    <th>Years in Proposed Position</th>
+                </tr>
+                <tbody id="newRowEmp"></tbody>
+            </table>
+            @Html.EditorFor(model => model.empTable, new { htmlAttributes = new { @class = "hiddenInputEmp" } })
+
+            <br>
+            <h4>Equipment Capabilities</h4>
+            <table class="table table-striped table-hover table-bordered">
+                <tr>
+                    <th>No.</th>
+                    <th>Description</th>
+                    <th>Power/Capacity</th>
+                    <th>No. of Units</th>
+                    <th>Agr of use</th>
+                    <th>Source of Equipment</th>
+                    <th>Current Location</th>
+                </tr>
+                <tbody id="newRowEqi"></tbody>
+            </table>
+            @Html.EditorFor(model => model.machEquipTable, new { htmlAttributes = new { @class = "hiddenInputEqi" } })
+        </div>
+
+        <p>
+            @Html.ActionLink("Back to List", "Index")
+        </p>
+    </div>
+</div>
+
+
+@section Scripts {
+    <script>
+        $(function () {
+            //Retrieve Professional Qualification Table
+            //Retrive table in the form of a string
+            var str = $(".hiddenInputEmp").val();
+
+            //To parse a string to js obj parse twice
+            var back = JSON.parse(str);
+            var twice = JSON.parse(back);
+
+            var res = '';
+            $.each(twice, function (i, j) {
+                res += '<tr contenteditable="true">';
+                $.each(twice[i], function (j) {
+                    res += '<td>' + twice[i][j] + '</td>';
+                });
+                res += '</tr>';
+            });
+
+            $('#newRowEmp').append(res);
+
+            //Retrieve Equipment Capabilities Table
+            //Retrive table in the form of a string
+            str = $(".hiddenInputEqi").val();
+
+            //To parse a string to js obj parse twice
+            back = JSON.parse(str);
+            twice = JSON.parse(back);
+
+            res = '';
+            $.each(twice, function (i, j) {
+                res += '<tr contenteditable="true">';
+                $.each(twice[i], function (j) {
+                    res += '<td>' + twice[i][j] + '</td>';
+                });
+                res += '</tr>';
+            });
+
+            $('#newRowEqi').append(res);
+
+            //Retrieve Annual Turnover Table
+            //Retrive table in the form of a string
+            str = $(".hiddenInputAt").val();
+
+            //To parse a string to js obj parse twice
+            back = JSON.parse(str);
+            twice = JSON.parse(back);
+
+            res = '';
+            $.each(twice, function (i, j) {
+                res += '<tr contenteditable="true">';
+                $.each(twice[i], function (j) {
+                    res += '<td>' + twice[i][j] + '</td>';
+                });
+                res += '</tr>';
+            });
+
+            $('#newRowAt').append(res);
+
+        });
+    </script>
+}

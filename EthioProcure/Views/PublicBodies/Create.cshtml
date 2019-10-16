@@ -1,0 +1,97 @@
+﻿@model EthioProcure.Models.PublicBody
+
+@{
+    ViewBag.Title = "Create";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="panel panel-collapse">
+    <div class="panel-heading panHead"><h3>Create Public Body</h3></div>
+    <div class="panel-body panBod">
+        @using (Html.BeginForm("Create", "PublicBodies", FormMethod.Post,
+            new { enctype = "multipart/form-data" }))
+        {
+            @Html.AntiForgeryToken()
+
+            <div class="form-horizontal">
+                <hr />
+                @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+                
+                <div class="row">
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            @Html.LabelFor(model => model.organizationName, htmlAttributes: new { @class = "control-label col-md-4" })
+                            <div class="col-md-8">
+                                @Html.EditorFor(model => model.organizationName, new { htmlAttributes = new { @class = "form-control theme", @placeholder = "Organization Name" } })
+                                @Html.ValidationMessageFor(model => model.organizationName, "", new { @class = "text-danger" })
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            @Html.LabelFor(model => model.email, htmlAttributes: new { @class = "control-label col-md-4" })
+                            <div class="col-md-8">
+                                @Html.EditorFor(model => model.email, new { htmlAttributes = new { @class = "form-control theme", @placeholder = "Email" } })
+                                @Html.ValidationMessageFor(model => model.email, "", new { @class = "text-danger" })
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            @Html.LabelFor(model => model.telephone, htmlAttributes: new { @class = "control-label col-md-4" })
+                            <div class="col-md-8">
+                                @Html.EditorFor(model => model.telephone, new { htmlAttributes = new { @class = "form-control theme", @placeholder = "Telephone" } })
+                                @Html.ValidationMessageFor(model => model.telephone, "", new { @class = "text-danger" })
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            @Html.LabelFor(model => model.logo, htmlAttributes: new { @class = "control-label col-md-4" })
+                            <div class="col-md-8">
+                                <input type="file" name="logoFile" class="form-control theme" />
+                                @Html.ValidationMessageFor(model => model.logo, "", new { @class = "text-danger" })
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            @Html.LabelFor(model => model.publicCertificate, htmlAttributes: new { @class = "control-label col-md-4" })
+                            <div class="col-md-8">
+                                <input type="file" name="pcFile" class="form-control theme" />
+                                <p>@ViewBag.ver</p>
+                                <input name="signature" type="text" class="form-control theme" placeholder="Signature"/>
+                                
+
+                            </div>
+                        </div>
+
+                    </div>
+
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <p>Description</p>
+                            <div class="col-md-12">
+                                @Html.TextAreaFor(model => model.description, 10, 40, new { @class = "form-control textArea maximize", @placeholder = "Company Information..." })
+                                @Html.ValidationMessageFor(model => model.description, "", new { @class = "text-danger" })
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <div class="col-md-10"></div>
+                    <div class=" col-md-2">
+                        <input type="submit" value="Create" class="btn btn-default" />
+                    </div>
+                </div>
+            </div>
+
+        }
+    </div>
+</div>
+
+<div>
+    @Html.ActionLink("Back to List", "Index")
+</div>
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+    
+}

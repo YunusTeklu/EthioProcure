@@ -1,0 +1,96 @@
+﻿@model EthioProcure.Models.Consultant
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="blackness">
+    <h3>@Html.DisplayFor(model => model.organizationName)</h3>
+    
+    @{ var consultant = Model;}
+    
+    <hr />
+    
+    <div class="row">
+        <div class="col-md-6">
+            <dl class="dl-horizontal">
+                <dt>
+                    @Html.DisplayNameFor(model => model.organizationName)
+                </dt>
+
+                <dd>
+                    @Html.DisplayFor(model => model.organizationName)
+                </dd>
+                <dt>
+                    @Html.DisplayNameFor(model => model.description)
+                </dt>
+
+                <dd>
+                    @Html.DisplayFor(model => model.description)
+                </dd>
+
+                <dt>
+                    @Html.DisplayNameFor(model => model.email)
+                </dt>
+
+                <dd>
+                    @Html.DisplayFor(model => model.email)
+                </dd>
+
+                <dt>
+                    @Html.DisplayNameFor(model => model.telephone)
+                </dt>
+
+                <dd>
+                    @Html.DisplayFor(model => model.telephone)
+                </dd>
+
+                <dt>
+                    @Html.DisplayNameFor(model => model.tinReg)
+                </dt>
+
+                <dd>
+                    @Html.DisplayFor(model => model.tinName)
+                    <a href="@Url.Action("download/tr", new { id= consultant.OrganizationId} )" class="btn btn-toolbar">
+                        Download File
+                    </a>
+                </dd>
+
+                <dt>
+                    @Html.DisplayNameFor(model => model.businessLicence)
+                </dt>
+
+                <dd>
+                    @Html.DisplayFor(model => model.blName)
+                    <a href="@Url.Action("download/bl", new { id= consultant.OrganizationId} )" class="btn btn-toolbar">
+                        Download File
+                    </a>
+                </dd>
+
+                <dt>
+                    @Html.DisplayNameFor(model => model.consultancyContract)
+                </dt>
+
+                <dd>
+                    @Html.DisplayFor(model => model.ccname)
+                    <a href="@Url.Action("download/cc", new { id= consultant.OrganizationId} )" class="btn btn-toolbar">
+                        Download File
+                    </a>
+                </dd>
+
+            </dl>
+        </div>
+        <div class="col-md-6">
+            <img 
+             style=" margin-left:25%; margin-right: 25%;
+             height: 300px; width: 300px; 
+             border-radius: 50%; border: 10px groove white;" 
+             src="@Url.Action("getImage", new { id= consultant.OrganizationId} )" />
+        </div>
+    </div>
+    <p>
+        @Html.ActionLink("Back to List", "Index")
+    </p>
+</div>
+

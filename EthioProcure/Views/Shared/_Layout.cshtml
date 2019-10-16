@@ -1,0 +1,79 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@ViewBag.Title - Ethio-Procure</title>
+    @Styles.Render("~/Content/css")
+    @Scripts.Render("~/bundles/modernizr")
+    <link href="~/Content/themes/base/jquery-ui.min.css" rel="stylesheet" />
+    <link href="~/Content/jquery.datetimepicker.min.css" rel="stylesheet" />
+    
+</head>
+<body>
+    <div class="navbar  navbar-default navbar-fixed-top">
+        <div class="container-fluid">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                    <span class="icon-bar"></span>
+                    <span class=" icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a href="#" class="navbar-brand">
+                    Ethio-Procure
+                </a>
+            </div>
+            <div class="navbar-collapse collapse ">
+                @Html.Partial("_LoginPartial")
+                <ul class="nav navbar-nav navbar-right">
+                    <li>@Html.ActionLink("Home", "Index", "Home")</li>
+                    <li>@Html.ActionLink("About", "About", "Home")</li>
+                </ul>
+
+            </div>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-md-2 fixed">
+            <div class="sideBar-brand">
+                <img src="~/Images/LogoFinal2.JPG" id="imgBrand"/>
+            </div>
+            <div class="shadow">
+                <br>
+                <h6 class="sidebarHeading">Organizations</h6>
+                <hr />
+                <ul class="sidebar-nav">
+                    <li>@Html.ActionLink("Contractors", "Index", "Contractors")</li>
+                    <li>@Html.ActionLink("Consultants", "Index", "Consultants")</li>
+                    <li>@Html.ActionLink("Public Bodies", "Index", "PublicBodies")</li>
+                </ul>
+                <hr>
+                <ul class="sidebar-nav">
+                    <li>@Html.ActionLink("Tenders", "Index", "Tenders")</li>
+                    <li>@Html.ActionLink("Reports", "ReportList", "EvaluateBids")</li>
+                    <li><a href="#">Help</a></li>
+                </ul>
+                <hr />
+                <br/><br /><br /><br />
+            </div>
+        </div>
+        <div class=" col-md-12  pushLeft">
+            <div class=" container-fluid body-content  ">
+                @RenderBody()
+                <hr />
+                <footer class="panel-footer footer">
+                    <p>&copy; @DateTime.Now.Year - Ethio-Procure</p>
+                </footer>
+            </div>
+        </div>
+    </div>
+
+@Scripts.Render("~/bundles/jquery")
+@Scripts.Render("~/bundles/bootstrap")
+@RenderSection("scripts", required: false)
+<script src="~/Scripts/jquery-ui-1.12.1.min.js"></script>
+<script src="~/Scripts/jquery.datetimepicker.full.js"></script>
+
+</body>
+</html>

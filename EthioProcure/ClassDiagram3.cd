@@ -1,0 +1,72 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1" MembersFormat="NameAndType">
+  <Class Name="EthioProcure.Models.Bid">
+    <Position X="15.5" Y="11.25" Width="1.75" />
+    <TypeIdentifier>
+      <HashCode>AAA0AAAAAAAAAEAAAAAAgAAAAAAARACAAgAAAAAAAAA=</HashCode>
+      <FileName>Models\Bid.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Property Name="tender" />
+      <Property Name="contractor" />
+      <Property Name="consultant" />
+    </ShowAsAssociation>
+  </Class>
+  <Class Name="EthioProcure.Models.Consultant">
+    <Position X="11.25" Y="6.5" Width="2" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAEAAAAAAAAAAAAAACAA=</HashCode>
+      <FileName>Models\Consultant.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="EthioProcure.Models.Contractor">
+    <Position X="18.25" Y="6.75" Width="2.5" />
+    <TypeIdentifier>
+      <HashCode>QAAAEABBAAAEIAAQAQAAAAAAAAAAQAAggAAQAwAAAAQ=</HashCode>
+      <FileName>Models\Contractor.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="EthioProcure.Models.Employee">
+    <Position X="17" Y="0.5" Width="2.5" />
+    <TypeIdentifier>
+      <HashCode>CAAAAAAAAABAAIAgAAAAABAAASAAAAAAAAAAAgCCAgA=</HashCode>
+      <FileName>Models\Employee.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Property Name="org" />
+    </ShowAsAssociation>
+  </Class>
+  <Class Name="EthioProcure.Models.Organization">
+    <Position X="11.5" Y="0.5" Width="2.25" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAEAAAEgIAAAAAAAAQACAAAAAAAAAACAAAA=</HashCode>
+      <FileName>Models\Organization.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="EthioProcure.Models.PrivateBody">
+    <Position X="14.75" Y="3.5" Width="2" />
+    <TypeIdentifier>
+      <HashCode>AAAAAEAAAAAAAAAAAAAEAAAAAAgAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Models\PrivateBody.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="EthioProcure.Models.PublicBody">
+    <Position X="9.75" Y="3.75" Width="2.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAgEAAAAAAA=</HashCode>
+      <FileName>Models\PublicBody.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="EthioProcure.Models.Tender">
+    <Position X="10.5" Y="10.75" Width="2.5" />
+    <TypeIdentifier>
+      <HashCode>AAAgAAABAAEAAAAAAAAAAACQAIAAAAAAhAAAABAAACA=</HashCode>
+      <FileName>Models\Tender.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Property Name="tenderer" />
+      <Property Name="consultant" />
+    </ShowAsAssociation>
+  </Class>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>

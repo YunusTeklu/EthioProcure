@@ -1,0 +1,156 @@
+﻿body {
+    padding-top: 50px;
+    padding-bottom: 20px;
+}
+
+/* Set padding to keep content from hitting the edges */
+.body-content {
+    padding-left: 15px;
+    padding-right: 15px;
+}
+
+/* Override the default bootstrap behavior where horizontal description lists 
+   will truncate terms that are too long to fit in the left column 
+*/
+.dl-horizontal dt {
+    white-space: normal;
+}
+
+/* Set width on the form input elements since they're 100% wide by default */
+input,
+select,
+textarea {
+    max-width: 280px;
+}
+
+
+hr {
+    display: block;
+    height: 1px;
+    border: 0;
+    border-top: 1px solid darkslategray;
+    margin: 1em 0;
+    padding: 0; 
+}
+
+    .maximize {
+        width: 100%;
+        max-width: 80%;
+        }
+
+    .textArea {
+        border-color: darkslategray;
+       background: transparent;
+    }
+
+    .theme{
+         background: transparent;
+        border:none;
+        border-bottom: 2px solid darkslategray;
+    }
+
+    .panHead {
+        background-color: #282828;
+    }
+
+.panBod {
+    background: linear-gradient(to right bottom, black, #282828 )  ;
+    /*background-image: url('../Images/BG1.JPG');
+    background-repeat: inherit;*/
+}
+
+    .disable {
+        pointer-events: none;
+    }
+    .selectImg{
+        border: 5px solid #282828; /* Gray border */
+        border-radius: 4px;  /* Rounded border */
+        padding: 5px; /* Some padding */
+        width: 150px;
+    }
+   .center{
+       text-align: center;
+   }
+.blackness {
+    background: linear-gradient(to right bottom, #282828, black )  ;
+    padding: 30px;
+}
+
+
+
+
+/*Sidebar*/
+.shadow{
+    background: black;
+    
+}
+
+.pushLeft{
+    padding-left: 250px;
+}
+
+.fixed{
+     z-index: 1; 
+     left: 0;
+     overflow-x: hidden;
+     position: fixed;
+}
+
+.sidebar-nav{
+    padding: 0;
+    list-style: none;
+    
+}
+
+.sidebarHeading{
+    text-indent: 20px;
+}
+
+.sidebar-nav li{
+    text-indent: 20px;
+    line-height: 40px;
+}
+
+.sidebar-nav li a {
+    display: block;
+    text-decoration: none;
+}
+
+.sidebar-nav li a:hover {
+    background: #282828;
+    
+}
+
+#imgBrand{
+    max-height: 100%;
+    max-width: 100%;
+}
+
+.footer{
+    background: #282828;
+}
+
+table tr{
+    white-space: nowrap;
+}
+
+@media screen and (max-width: 900px) {
+    .fixed{
+        z-index: 0; 
+        width: 100%; 
+        position: static;
+    }
+    .pushLeft{
+        padding-left: 5px;
+    }
+    .sidebarHeading{
+        text-indent: 20px;
+        align-content: center;
+    }
+
+    .sidebar-nav li{
+        text-indent: 20px;
+        line-height: 40px;
+        align-content: center;
+    }
+}

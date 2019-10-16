@@ -1,0 +1,468 @@
+﻿@model EthioProcure.Models.Contractor
+
+@{
+    ViewBag.Title = "Edit";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+<div class="panel panel-collapse">
+    <div class="panel-heading panHead"><h3>Edit Contractor</h3></div>
+    <div class="panel-body panBod">
+        @using (Html.BeginForm("Edit", "Contractors", FormMethod.Post,
+                new { enctype = "multipart/form-data" }))
+        {
+            @Html.AntiForgeryToken()
+
+            <div class="form-horizontal">
+                <hr />
+                @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+                @Html.HiddenFor(model => model.OrganizationId)
+                <div class="form-group">
+                    @Html.LabelFor(model => model.organizationName, htmlAttributes: new { @class = "control-label col-md-2" })
+                    <div class="col-md-10">
+                        @Html.EditorFor(model => model.organizationName, new { htmlAttributes = new { @class = "form-control theme", @placeholder = "Organization Name" } })
+                        @Html.ValidationMessageFor(model => model.organizationName, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    @Html.LabelFor(model => model.email, htmlAttributes: new { @class = "control-label col-md-2" })
+                    <div class="col-md-10">
+                        @Html.EditorFor(model => model.email, new { htmlAttributes = new { @class = "form-control theme", @placeholder = "Email" } })
+                        @Html.ValidationMessageFor(model => model.email, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    @Html.LabelFor(model => model.telephone, htmlAttributes: new { @class = "control-label col-md-2" })
+                    <div class="col-md-10">
+                        @Html.EditorFor(model => model.telephone, new { htmlAttributes = new { @class = "form-control theme", @placeholder = "Telephone" } })
+                        @Html.ValidationMessageFor(model => model.telephone, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    @Html.LabelFor(model => model.contractorLevel, htmlAttributes: new { @class = "control-label col-md-2" })
+                    <div class="col-md-10">
+                        @Html.EditorFor(model => model.contractorLevel, new { htmlAttributes = new { @class = "form-control theme", @placeholder = "Contractor Level" } })
+                        @Html.ValidationMessageFor(model => model.contractorLevel, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    @Html.LabelFor(model => model.contractorType, htmlAttributes: new { @class = "control-label col-md-2" })
+                    <div class="col-md-10">
+                        @Html.DropDownListFor(model => model.contractorType, new SelectList(
+                            new List<object> {
+                                new {value="General Contractor (GC)", text="General Contractor (GC)"},
+                                new {value="Building Contractor (BC)", text="Building Contractor (BC)"},
+                                new {value="Road Contractor (RC)", text="Road Contractor (RC)"}
+                                }, "value", "text"),
+                                "Select Contractor Type",
+                                new { @class = "form-control theme" })
+                        @Html.ValidationMessageFor(model => model.contractorType, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+
+                <br />
+                <h4>Required Files</h4>
+                <hr />
+
+                <div class="row">
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            @Html.LabelFor(model => model.logo, htmlAttributes: new { @class = "control-label col-md-4 lab" })
+                            <div class="col-md-8">
+                                <input type="file" name="logoFile" class="form-control maximize theme" />
+                                @Html.ValidationMessageFor(model => model.logo, "", new { @class = "text-danger" })
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            @Html.LabelFor(model => model.businessLicence, htmlAttributes: new { @class = "control-label col-md-4 lab" })
+                            <div class="col-md-8">
+                                <input type="file" name="blFile" class="form-control maximize theme" />
+                                @Html.ValidationMessageFor(model => model.businessLicence, "", new { @class = "text-danger" })
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            @Html.LabelFor(model => model.businessLicence, htmlAttributes: new { @class = "control-label col-md-4 lab" })
+                            <div class="col-md-8">
+                                <input type="file" name="blFile" class="form-control maximize theme" />
+                                @Html.ValidationMessageFor(model => model.businessLicence, "", new { @class = "text-danger" })
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            @Html.LabelFor(model => model.tinReg, htmlAttributes: new { @class = "control-label col-md-4 lab" })
+                            <div class="col-md-8">
+                                <input type="file" name="trFile" class="form-control maximize theme" />
+                                @Html.ValidationMessageFor(model => model.tinReg, "", new { @class = "text-danger" })
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            @Html.LabelFor(model => model.orgStruct, htmlAttributes: new { @class = "control-label col-md-4 lab" })
+                            <div class="col-md-8">
+                                <input type="file" name="osFile" class="form-control maximize theme" />
+                                @Html.ValidationMessageFor(model => model.orgStruct, "", new { @class = "text-danger" })
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            @Html.LabelFor(model => model.certificateOfCompetency, htmlAttributes: new { @class = "control-label col-md-4 lab" })
+                            <div class="col-md-8">
+                                <input type="file" name="cocFile" class="form-control maximize theme" />
+                                @Html.ValidationMessageFor(model => model.certificateOfCompetency, "", new { @class = "text-danger" })
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            @Html.LabelFor(model => model.auditReport, htmlAttributes: new { @class = "control-label col-md-4 lab" })
+                            <div class="col-md-8">
+                                <input type="file" name="arFile" class="form-control maximize theme" />
+                                @Html.ValidationMessageFor(model => model.auditReport, "", new { @class = "text-danger" })
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            @Html.LabelFor(model => model.taxClearance, htmlAttributes: new { @class = "control-label col-md-4 lab" })
+                            <div class="col-md-8">
+                                <input type="file" name="tcFile" class="form-control maximize theme" />
+                                @Html.ValidationMessageFor(model => model.taxClearance, "", new { @class = "text-danger" })
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            @Html.LabelFor(model => model.vatRegistration, htmlAttributes: new { @class = "control-label col-md-4 lab" })
+                            <div class="col-md-8">
+                                <input type="file" name="vrFile" class="form-control maximize theme" />
+                                @Html.ValidationMessageFor(model => model.vatRegistration, "", new { @class = "text-danger" })
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            @Html.LabelFor(model => model.machinaryCertificate, htmlAttributes: new { @class = "control-label col-md-4 lab" })
+                            <div class="col-md-8">
+                                <input type="file" name="mcFile" class="form-control maximize theme" />
+                                @Html.ValidationMessageFor(model => model.machinaryCertificate, "", new { @class = "text-danger" })
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            @Html.LabelFor(model => model.staffCV, htmlAttributes: new { @class = "control-label col-md-4 lab" })
+                            <div class="col-md-8">
+                                <input type="file" name="scvFile" class="form-control maximize theme" />
+                                @Html.ValidationMessageFor(model => model.staffCV, "", new { @class = "text-danger" })
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            @Html.LabelFor(model => model.performanceletter, htmlAttributes: new { @class = "control-label col-md-4 lab" })
+                            <div class="col-md-8">
+                                <input type="file" name="plFile" class="form-control maximize theme" />
+                                @Html.ValidationMessageFor(model => model.performanceletter, "", new { @class = "text-danger" })
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            @Html.LabelFor(model => model.fppaReg, htmlAttributes: new { @class = "control-label col-md-4 lab" })
+                            <div class="col-md-8">
+                                <input type="file" name="frFile" class="form-control maximize theme" />
+                                @Html.ValidationMessageFor(model => model.fppaReg, "", new { @class = "text-danger" })
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+
+                <hr>
+                <br>
+                <div class="form-group">
+                    @Html.LabelFor(model => model.description, htmlAttributes: new { @class = "control-label col-md-2" })
+                    <div class="col-md-10">
+                        @Html.TextAreaFor(model => model.description, 5, 40, new { @class = "form-control  maximize textArea", @placeholder = "Company Information..." })
+                        @Html.ValidationMessageFor(model => model.description, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+
+
+                <br />
+                <h4>Proofessional Qualifications</h4>
+                <table class="table table-striped table-hover table-bordered">
+                    <tr>
+                        <th>No.</th>
+                        <th>Name</th>
+                        <th>Position</th>
+                        <th>Qualifications</th>
+                        <th>Years of Experience</th>
+                        <th>Years in Proposed Position</th>
+                    </tr>
+                    <tbody id="newRowEmp"></tbody>
+                </table>
+                <button type="button" id="btnAddEmp" class="btn btn-default">Add a Row</button>
+                <button type="button" id="btnSaveEmp" class="btn btn-default">Done</button>
+                <p id="messageEmp"></p>
+                @Html.EditorFor(model => model.empTable, new { htmlAttributes = new { @class = "hiddenInputEmp" } })
+
+                <br>
+                <h4>Equipment Capabilities</h4>
+                <table class="table table-striped table-hover table-bordered">
+                    <tr>
+                        <th>No.</th>
+                        <th>Description</th>
+                        <th>Power/Capacity</th>
+                        <th>No. of Units</th>
+                        <th>Agr of use</th>
+                        <th>Source of Equipment</th>
+                        <th>Current Location</th>
+                    </tr>
+                    <tbody id="newRowEqi"></tbody>
+                </table>
+                <button type="button" id="btnAddEqi" class="btn btn-default">Add a Row</button>
+                <button type="button" id="btnSaveEqi" class="btn btn-default">Done</button>
+                <p id="messageEqi"></p>
+                @Html.EditorFor(model => model.machEquipTable, new { htmlAttributes = new { @class = "hiddenInputEqi" } })
+
+
+                <br>
+                <h4>Annual Turnover</h4>
+                <table class="table table-striped table-hover table-bordered">
+                    <tr>
+                        <th>Year</th>
+                        <th>Amount and Currency</th>
+                    </tr>
+                    <tbody id="newRowAt"></tbody>
+                </table>
+                <button type="button" id="btnAddAt" class="btn btn-default">Add a Row</button>
+                <button type="button" id="btnSaveAt" class="btn btn-default">Done</button>
+                <p id="messageAt"></p>
+                @Html.EditorFor(model => model.annualTurnover, new { htmlAttributes = new { @class = "hiddenInputAt" } })
+
+
+                <div class="form-group">
+                    <div class="col-lg-10"></div>
+                    <div class="col-lg-2">
+                        <input type="submit" value="Finish" class="btn btn-default" />
+                    </div>
+                </div>
+
+            </div>
+        }
+
+
+    </div>
+</div>
+
+<div>
+    @Html.ActionLink("Back to List", "Index")
+</div>
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+
+    <script>
+         //For the Professional Qualification Table
+         var emp = '<tr contenteditable="true"><td></td><td></td><td></td><td></td><td></td><td></td></tr>';
+
+         //Add Row
+         $(function () {
+             $('#btnAddEmp').click(function () {
+                 $('#newRowEmp').append(emp).slideDown;
+             });
+         });
+
+
+         $(function () {
+             $('#btnSaveEmp').click(function () {
+
+                 //To convert html table to json
+                 var json = '{';
+                 var otArr = [];
+                 var tbl2 = $('#newRowEmp tr').each(function (i) {
+                     x = $(this).children();
+                     var itArr = [];
+                     x.each(function () {
+                         itArr.push('"' + $(this).text() + '"');
+                     });
+                     otArr.push('"' + i + '": [' + itArr.join(',') + ']');
+                 });
+                 json += otArr.join(",") + '}';
+
+                 var jsobj = JSON.parse(json);
+                 //parse changes Json to javscript object or string to Json.
+
+                 var str = JSON.stringify(json);
+                 //changes JSOn to string
+
+
+                 $(".hiddenInputEmp").val(str);
+
+                 $("#messageEmp").append("Table is loaded...")
+              });
+
+         });
+
+         //For Equipment Capabilities Table
+
+         var eqi = '<tr contenteditable="true"><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr>';
+
+         //Add Row
+         $(function () {
+             $('#btnAddEqi').click(function () {
+                 $('#newRowEqi').append(eqi).slideDown;
+             });
+         });
+
+
+         $(function () {
+             $('#btnSaveEqi').click(function () {
+
+                 //To convert html table to json
+                 var json = '{';
+                 var otArr = [];
+                 var tbl2 = $('#newRowEqi tr').each(function (i) {
+                     x = $(this).children();
+                     var itArr = [];
+                     x.each(function () {
+                         itArr.push('"' + $(this).text() + '"');
+                     });
+                     otArr.push('"' + i + '": [' + itArr.join(',') + ']');
+                 });
+                 json += otArr.join(",") + '}';
+
+                 var jsobj = JSON.parse(json);
+                 //parse changes Json to javscript object or string to Json.
+
+                 var str = JSON.stringify(json);
+                 //changes JSOn to string
+
+
+                 $(".hiddenInputEqi").val(str);
+
+                 $("#messageEqi").append("Table is loaded...")
+             });
+
+         });
+
+         //For Annual Tuenover Table
+
+         var at = '<tr contenteditable="true"><td></td><td></td></tr>';
+
+         //Add Row
+         $(function () {
+             $('#btnAddAt').click(function () {
+                 $('#newRowAt').append(at).slideDown;
+             });
+         });
+
+
+         $(function () {
+             $('#btnSaveAt').click(function () {
+
+                 //To convert html table to json
+                 var json = '{';
+                 var otArr = [];
+                 var tbl2 = $('#newRowAt tr').each(function (i) {
+                     x = $(this).children();
+                     var itArr = [];
+                     x.each(function () {
+                         itArr.push('"' + $(this).text() + '"');
+                     });
+                     otArr.push('"' + i + '": [' + itArr.join(',') + ']');
+                 });
+                 json += otArr.join(",") + '}';
+
+                 var jsobj = JSON.parse(json);
+                 //parse changes Json to javscript object or string to Json.
+
+                 var str = JSON.stringify(json);
+                 //changes JSOn to string
+
+
+                 $(".hiddenInputAt").val(str);
+
+                 $("#messageAt").append("Table is loaded...")
+             });
+
+         });
+
+        
+         $(function () {
+             //Retrieve Professional Qualification Table
+             //Retrive table in the form of a string
+             var str = $(".hiddenInputEmp").val();
+
+             //To parse a string to js obj parse twice
+             var back = JSON.parse(str);
+             var twice = JSON.parse(back);
+
+             var res = '';
+             $.each(twice, function (i, j) {
+                 res += '<tr contenteditable="true">';
+                 $.each(twice[i], function (j) {
+                     res += '<td>' + twice[i][j] + '</td>';
+                 });
+                 res += '</tr>';
+             });
+
+             $('#newRowEmp').append(res);
+
+             //Retrieve Equipment Capabilities Table
+             //Retrive table in the form of a string
+             str = $(".hiddenInputEqi").val();
+
+             //To parse a string to js obj parse twice
+             back = JSON.parse(str);
+             twice = JSON.parse(back);
+
+             res = '';
+             $.each(twice, function (i, j) {
+                 res += '<tr contenteditable="true">';
+                 $.each(twice[i], function (j) {
+                     res += '<td>' + twice[i][j] + '</td>';
+                 });
+                 res += '</tr>';
+             });
+
+             $('#newRowEqi').append(res);
+
+             //Retrieve Annual Turnover Table
+             //Retrive table in the form of a string
+             str = $(".hiddenInputAt").val();
+
+             //To parse a string to js obj parse twice
+             back = JSON.parse(str);
+             twice = JSON.parse(back);
+
+             res = '';
+             $.each(twice, function (i, j) {
+                 res += '<tr contenteditable="true">';
+                 $.each(twice[i], function (j) {
+                     res += '<td>' + twice[i][j] + '</td>';
+                 });
+                 res += '</tr>';
+             });
+
+             $('#newRowAt').append(res);
+
+         });
+
+        
+         $(function () {
+
+            
+         });
+
+        
+         $(function () {
+
+             
+         });
+
+    </script>
+}

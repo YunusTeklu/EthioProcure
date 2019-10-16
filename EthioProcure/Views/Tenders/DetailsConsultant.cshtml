@@ -1,0 +1,133 @@
+﻿@model EthioProcure.Models.Tender
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+<div class="blackness">
+    <h3>@Html.DisplayFor(model => model.projectTitle)</h3>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.TenderId }, new { @class = "btn btn-toolbar" }) 
+    @Html.ActionLink("Evaluation Report", "Index", "EvaluateBids", new { id = Model.TenderId }, new { @class = "btn btn-toolbar" })
+    
+    <h5>@ViewBag.EroorEval</h5>
+
+    <hr />
+    <h4>Bid Data Sheet</h4>
+    <table class="table table-striped table-hover table-bordered">
+        <tr>
+            <th>Tender Item</th>
+            <th>Data Relevant for Bidders</th>
+        </tr>
+        <tr>
+            <td>Procurring Entity (Public Body)</td>
+            <td>@ViewBag.publicBodyName</td>
+        </tr>
+        <tr>
+            <td>@Html.DisplayNameFor(model => model.projectTitle)</td>
+            <td>@Html.DisplayFor(model => model.projectTitle)</td>
+        </tr>
+        <tr>
+            <td>Consultant</td>
+            <td>@ViewBag.consultantName</td>
+        </tr>
+        <tr>
+            <td>@Html.DisplayNameFor(model => model.projectScope)</td>
+            <td>@Html.DisplayFor(model => model.projectScope)</td>
+        </tr>
+        <tr>
+            <td>@Html.DisplayNameFor(model => model.openingDate)</td>
+            <td>@Html.DisplayFor(model => model.openingDate)</td>
+        </tr>
+        <tr>
+            <td>@Html.DisplayNameFor(model => model.submissionDeadline)</td>
+            <td>@Html.DisplayFor(model => model.submissionDeadline)</td>
+        </tr>
+        <tr>
+            <td>@Html.DisplayNameFor(model => model.contractType)</td>
+            <td>@Html.DisplayFor(model => model.contractType)</td>
+        </tr>
+        <tr>
+            <td>@Html.DisplayNameFor(model => model.procurementMethod)</td>
+            <td>@Html.DisplayFor(model => model.procurementMethod)</td>
+        </tr>
+        <tr>
+            <td>@Html.DisplayNameFor(model => model.bidSecurity)</td>
+            <td>@Html.DisplayFor(model => model.bidSecurity)</td>
+        </tr>
+        <tr>
+            <td>@Html.DisplayNameFor(model => model.requiredContractors)</td>
+            <td>@Html.DisplayFor(model => model.requiredContractors)</td>
+        </tr>
+        <tr>
+            <td>@Html.DisplayNameFor(model => model.evaluationMethod)</td>
+            <td>@Html.DisplayFor(model => model.evaluationMethod)</td>
+        </tr>
+        <tr>
+            <td>@Html.DisplayNameFor(model => model.sbdName)</td>
+            <td>@Html.DisplayFor(model => model.sbdName)
+            <a href="@Url.Action("downloadSbd", new { id= Model.TenderId} )" class="btn btn-toolbar">
+                Download File</a>
+        </tr>
+        <tr>
+            <td>@Html.DisplayNameFor(model => model.designName)</td>
+            <td>@Html.DisplayFor(model => model.designName)
+            <a href="@Url.Action("downloadDes", new { id= Model.TenderId} )" class="btn btn-toolbar">
+                Download File
+            </a></td>
+        </tr>
+        <tr>
+            <td>@Html.DisplayNameFor(model => model.bidValidity)</td>
+            <td>@Html.DisplayFor(model => model.bidValidity)</td>
+        </tr>
+        
+    </table>
+        
+        <br />
+        <h3>Bill of Quantity</h3>
+        <br />
+        <table id="fullTbl" class="table table-striped table-hover table-bordered">
+            <tr>
+                <th>No.</th>
+                <th>Description</th>
+                <th>Unit</th>
+                <th>Quantity</th>
+                <th>Unit Rate</th>
+                <th>Total Amount</th>
+                <th>Unit Rate Point</th>
+            </tr>
+            <tbody id="newRow"></tbody>
+        </table>
+        @Html.EditorFor(model => model.billOfQuantity, new { htmlAttributes = new { @class = "hiddenInput" } })
+    <p>
+        @Html.ActionLink("Back to List", "Index")
+    </p>
+</div>
+
+
+@section Scripts {
+    <script>
+    $(function () {
+
+        
+        //Retrive table in the form of a string
+        var str = $(".hiddenInput").val();
+        
+        //To parse a string to js obj parse twice
+        var back = JSON.parse(str);
+        var twice = JSON.parse(back);
+
+        var res = '';
+        $.each(twice, function (i, j) {
+            res += '<tr>';
+            $.each(twice[i], function (j) {
+                res += '<td>' + twice[i][j] + '</td>';
+            });
+            res += '</tr>';
+        });
+
+        $('#newRow').append(res);
+    });
+</script>
+}

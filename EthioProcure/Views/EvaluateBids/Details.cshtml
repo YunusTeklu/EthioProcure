@@ -1,0 +1,163 @@
+﻿@model EthioProcure.Models.EvaluateBid
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>EvaluateBid</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.bid.methodology)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.bid.methodology)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.contractorTypeScore)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.contractorTypeScore)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.contractorLevelScore)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.contractorLevelScore)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.methodologyScore)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.methodologyScore)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.workScheduleScore)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.workScheduleScore)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.implementationPlanScore)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.implementationPlanScore)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.tinScore)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.tinScore)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.busLiScore)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.busLiScore)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.cocScore)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.cocScore)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.audRepScore)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.audRepScore)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.machCertScore)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.machCertScore)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.profCertScore)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.profCertScore)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.perfLetScore)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.perfLetScore)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.taxClrScore)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.taxClrScore)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.vatRegScore)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.vatRegScore)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.fppaRegScore)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.fppaRegScore)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.bidSecScore)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.bidSecScore)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.csvScore)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.csvScore)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.EvaluateBidId }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

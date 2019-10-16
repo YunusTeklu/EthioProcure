@@ -1,0 +1,509 @@
+﻿@model EthioProcure.Models.EvaluateBid
+
+@{
+    ViewBag.Title = "Create";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="blackness">
+    @using (Html.BeginForm("Create", "EvaluateBids"))
+    {
+        @Html.AntiForgeryToken()
+
+        <div class="form-horizontal">
+            @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+            <h2>
+                <span>
+                    <img style=" height: 75px; width: 100px;
+             border: 2px solid #282828;"
+                         src="@Url.Action("getLogo","Bids", new { id= Model.bid.BidId} )" />
+                </span>
+                @Html.DisplayFor(model => model.bid.contractor.organizationName)
+            </h2>
+
+            <h3>Bid for @Html.DisplayFor(model => model.bid.tender.projectTitle)</h3>
+
+            <div>
+
+                <h3>Technical Proposal</h3>
+                <hr />
+                <div class="row">
+                    <div class="col-md-6">
+                        <h4>
+                            @Html.DisplayNameFor(model => model.bid.contractor.description)
+                        </h4>
+
+                        <p>
+                            @Html.DisplayFor(model => model.bid.contractor.description)
+                        </p>
+
+                        <h4>
+                            @Html.DisplayNameFor(model => model.bid.contractor.contractorLevel)
+                        </h4>
+
+                        <p>
+                            @Html.DisplayFor(model => model.bid.contractor.contractorLevel)
+                        </p>
+                        <div class="form-control theme">
+                            1 @Html.RadioButtonFor(model => model.contractorLevelScore, "1")
+                            2 @Html.RadioButtonFor(model => model.contractorLevelScore, "2")
+                            3 @Html.RadioButtonFor(model => model.contractorLevelScore, "3")
+                            4 @Html.RadioButtonFor(model => model.contractorLevelScore, "4")
+                            5 @Html.RadioButtonFor(model => model.contractorLevelScore, "5")
+                        </div>
+
+                        <h4>
+                            @Html.DisplayNameFor(model => model.bid.contractor.contractorType)
+                        </h4>
+
+                        <p>
+                            @Html.DisplayFor(model => model.bid.contractor.contractorType)
+                        </p>
+                        <div class="form-control theme">
+                            1 @Html.RadioButtonFor(model => model.contractorTypeScore, "1")
+                            2 @Html.RadioButtonFor(model => model.contractorTypeScore, "2")
+                            3 @Html.RadioButtonFor(model => model.contractorTypeScore, "3")
+                            4 @Html.RadioButtonFor(model => model.contractorTypeScore, "4")
+                            5 @Html.RadioButtonFor(model => model.contractorTypeScore, "5")
+                        </div>
+
+                        <h4>
+                            @Html.DisplayNameFor(model => model.bid.methodology)
+                        </h4>
+
+                        <p>
+                            @Html.DisplayFor(model => model.bid.methodology)
+                        </p>
+                        <div class="form-control theme">
+                            1 @Html.RadioButtonFor(model => model.methodologyScore, "1")
+                            2 @Html.RadioButtonFor(model => model.methodologyScore, "2")
+                            3 @Html.RadioButtonFor(model => model.methodologyScore, "3")
+                            4 @Html.RadioButtonFor(model => model.methodologyScore, "4")
+                            5 @Html.RadioButtonFor(model => model.methodologyScore, "5")
+                            6 @Html.RadioButtonFor(model => model.methodologyScore, "6")
+                            7 @Html.RadioButtonFor(model => model.methodologyScore, "7")
+                            8 @Html.RadioButtonFor(model => model.methodologyScore, "8")
+                            9 @Html.RadioButtonFor(model => model.methodologyScore, "9")
+                            10 @Html.RadioButtonFor(model => model.methodologyScore, "10")
+                        </div>
+
+                        <h4>
+                            @Html.DisplayNameFor(model => model.bid.implementationPlan)
+                        </h4>
+
+                        <p>
+                            @Html.DisplayFor(model => model.bid.implementationPlan)
+                        </p>
+                        <div class="form-control theme">
+                            1 @Html.RadioButtonFor(model => model.implementationPlanScore, "1")
+                            2 @Html.RadioButtonFor(model => model.implementationPlanScore, "2")
+                            3 @Html.RadioButtonFor(model => model.implementationPlanScore, "3")
+                            4 @Html.RadioButtonFor(model => model.implementationPlanScore, "4")
+                            5 @Html.RadioButtonFor(model => model.implementationPlanScore, "5")
+                            6 @Html.RadioButtonFor(model => model.implementationPlanScore, "6")
+                            7 @Html.RadioButtonFor(model => model.implementationPlanScore, "7")
+                            8 @Html.RadioButtonFor(model => model.implementationPlanScore, "8")
+                            9 @Html.RadioButtonFor(model => model.implementationPlanScore, "9")
+                            10 @Html.RadioButtonFor(model => model.implementationPlanScore, "10")
+                        </div>
+
+                        <h4>
+                            @Html.DisplayNameFor(model => model.bid.workSchedule)
+                        </h4>
+
+                        <p>
+                            @Html.DisplayFor(model => model.bid.workSchedule)
+                        </p>
+                        <div class="form-control theme">
+                            1 @Html.RadioButtonFor(model => model.workScheduleScore, "1")
+                            2 @Html.RadioButtonFor(model => model.workScheduleScore, "2")
+                            3 @Html.RadioButtonFor(model => model.workScheduleScore, "3")
+                            4 @Html.RadioButtonFor(model => model.workScheduleScore, "4")
+                            5 @Html.RadioButtonFor(model => model.workScheduleScore, "5")
+                            6 @Html.RadioButtonFor(model => model.workScheduleScore, "6")
+                            7 @Html.RadioButtonFor(model => model.workScheduleScore, "7")
+                            8 @Html.RadioButtonFor(model => model.workScheduleScore, "8")
+                            9 @Html.RadioButtonFor(model => model.workScheduleScore, "9")
+                            10 @Html.RadioButtonFor(model => model.workScheduleScore, "10")
+                        </div>
+
+                    </div>
+
+                    <div class="col-md-6">
+                        <img style=" margin-left:25%; margin-right: 25%;
+                    height: 400px; width: 400px;"
+                             src="@Url.Action("getOrgStruct","Bids", new { id = Model.bid.BidId }) " />
+
+                        <br>
+                        <h3>Contact us</h3>
+                        <table class="table table-hover table-striped table-responsive table-bordered">
+                            <tr>
+                                <td>@Html.DisplayNameFor(model => model.bid.contractor.email)</td>
+                                <td>@Html.DisplayFor(model => model.bid.contractor.email)</td>
+                            </tr>
+                            <tr>
+                                <td>@Html.DisplayNameFor(model => model.bid.contractor.telephone)</td>
+                                <td>@Html.DisplayFor(model => model.bid.contractor.telephone)</td>
+                            </tr>
+                        </table>
+
+                        <br>
+                        <h4>Annual Turnover</h4>
+                        <table class="table table-striped table-hover table-bordered">
+                            <tr>
+                                <th>Year</th>
+                                <th>Amount and Currency</th>
+                            </tr>
+                            <tbody id="newRowAt"></tbody>
+                        </table>
+                        @Html.EditorFor(model => model.bid.contractor.annualTurnover, new { htmlAttributes = new { @class = "hiddenInputAt" } })
+                        <div class="form-control theme">
+                            1 @Html.RadioButtonFor(model => model.anualTurnoverScore, "1")
+                            2 @Html.RadioButtonFor(model => model.anualTurnoverScore, "2")
+                            3 @Html.RadioButtonFor(model => model.anualTurnoverScore, "3")
+                            4 @Html.RadioButtonFor(model => model.anualTurnoverScore, "4")
+                            5 @Html.RadioButtonFor(model => model.anualTurnoverScore, "5")
+                            6 @Html.RadioButtonFor(model => model.anualTurnoverScore, "6")
+                            7 @Html.RadioButtonFor(model => model.anualTurnoverScore, "7")
+                            8 @Html.RadioButtonFor(model => model.anualTurnoverScore, "8")
+                            9 @Html.RadioButtonFor(model => model.anualTurnoverScore, "9")
+                            10 @Html.RadioButtonFor(model => model.anualTurnoverScore, "10")
+                        </div>
+                    </div>
+                </div>
+
+                <div>
+
+                    <br>
+                    <h4>Files</h4>
+                    <table class="table table-hover table-striped table-responsive table-bordered">
+                        <tr>
+                            <th>File Description</th>
+                            <th>File Name</th>
+                            <th>Download</th>
+                            <th></th>
+                        </tr>
+                        <tr>
+                            <td>@Html.DisplayNameFor(model => model.bid.contractor.tinReg)</td>
+                            <td>@Html.DisplayFor(model => model.bid.contractor.tinName)</td>
+                            <td>
+                                <a href="@Url.Action("download/tr", new { id= Model.bid.contractor.OrganizationId} )" class="btn btn-toolbar">
+                                    Download File
+                                </a>
+                            </td>
+                            <td>
+                                @Html.CheckBoxFor(model => model.tinScore)
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>@Html.DisplayNameFor(model => model.bid.contractor.businessLicence)</td>
+                            <td>@Html.DisplayFor(model => model.bid.contractor.blName)</td>
+                            <td>
+                                <a href="@Url.Action("download/bl", new { id= Model.bid.contractor.OrganizationId} )" class="btn btn-toolbar">
+                                    Download File
+                                </a>
+                            </td>
+                            <td>
+                                @Html.CheckBoxFor(model => model.busLiScore)
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>@Html.DisplayNameFor(model => model.bid.contractor.certificateOfCompetency)</td>
+                            <td>@Html.DisplayFor(model => model.bid.contractor.cocName)</td>
+                            <td>
+                                <a href="@Url.Action("download/coc", new { id= Model.bid.contractor.OrganizationId} )" class="btn btn-toolbar">
+                                    Download File
+                                </a>
+                            </td>
+                            <td>
+                                @Html.CheckBoxFor(model => model.cocScore)
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>@Html.DisplayNameFor(model => model.bid.contractor.auditReport)</td>
+                            <td>@Html.DisplayFor(model => model.bid.contractor.arName)</td>
+                            <td>
+                                <a href="@Url.Action("download/ar", new { id= Model.bid.contractor.OrganizationId} )" class="btn btn-toolbar">
+                                    Download File
+                                </a>
+                            </td>
+                            <td>
+                                @Html.CheckBoxFor(model => model.audRepScore)
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>@Html.DisplayNameFor(model => model.bid.contractor.machinaryCertificate)</td>
+                            <td>@Html.DisplayFor(model => model.bid.contractor.mcName)</td>
+                            <td>
+                                <a href="@Url.Action("download/mc", new { id= Model.bid.contractor.OrganizationId} )" class="btn btn-toolbar">
+                                    Download File
+                                </a>
+                            </td>
+                            <td>
+                                @Html.CheckBoxFor(model => model.machCertScore)
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>@Html.DisplayNameFor(model => model.bid.contractor.staffCV)</td>
+                            <td>@Html.DisplayFor(model => model.bid.contractor.scName)</td>
+                            <td>
+                                <a href="@Url.Action("download/sc", new { id= Model.bid.contractor.OrganizationId} )" class="btn btn-toolbar">
+                                    Download File
+                                </a>
+                            </td>
+                            <td>
+                                @Html.CheckBoxFor(model => model.profCertScore)
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>@Html.DisplayNameFor(model => model.bid.contractor.performanceletter)</td>
+                            <td>@Html.DisplayFor(model => model.bid.contractor.plName)</td>
+                            <td>
+                                <a href="@Url.Action("download/pl", new { id= Model.bid.contractor.OrganizationId} )" class="btn btn-toolbar">
+                                    Download File
+                                </a>
+                            </td>
+                            <td>
+                                @Html.CheckBoxFor(model => model.perfLetScore)
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>@Html.DisplayNameFor(model => model.bid.contractor.taxClearance)</td>
+                            <td>@Html.DisplayFor(model => model.bid.contractor.taxClrName)</td>
+                            <td>
+                                <a href="@Url.Action("download/tc", new { id= Model.bid.contractor.OrganizationId} )" class="btn btn-toolbar">
+                                    Download File
+                                </a>
+                            </td>
+                            <td>
+                                @Html.CheckBoxFor(model => model.taxClrScore)
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>@Html.DisplayNameFor(model => model.bid.contractor.vatRegistration)</td>
+                            <td>@Html.DisplayFor(model => model.bid.contractor.vatRagName)</td>
+                            <td>
+                                <a href="@Url.Action("download/vr", new { id= Model.bid.contractor.OrganizationId} )" class="btn btn-toolbar">
+                                    Download File
+                                </a>
+                            </td>
+                            <td>
+                                @Html.CheckBoxFor(model => model.vatRegScore)
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>@Html.DisplayNameFor(model => model.bid.contractor.fppaReg)</td>
+                            <td>@Html.DisplayFor(model => model.bid.contractor.fppaRegName)</td>
+                            <td>
+                                <a href="@Url.Action("download/fr", new { id= Model.bid.contractor.OrganizationId} )" class="btn btn-toolbar">
+                                    Download File
+                                </a>
+                            </td>
+                            <td>
+                                @Html.CheckBoxFor(model => model.fppaRegScore)
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>@Html.DisplayNameFor(model => model.bid.bidSecurity)</td>
+                            <td>@Html.DisplayFor(model => model.bid.bsName)</td>
+                            <td>
+                                <a href="@Url.Action("download/bs", new { id= Model.bid.contractor.OrganizationId} )" class="btn btn-toolbar">
+                                    Download File
+                                </a>
+                            </td>
+                            <td>
+                                @Html.CheckBoxFor(model => model.bidSecScore)
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>@Html.DisplayNameFor(model => model.bid.certificateOfSiteVisit)</td>
+                            <td>@Html.DisplayFor(model => model.bid.csvName)</td>
+                            <td>
+                                <a href="@Url.Action("download/csv", new { id= Model.bid.contractor.OrganizationId} )" class="btn btn-toolbar">
+                                    Download File
+                                </a>
+                            </td>
+                            <td>
+                                @Html.CheckBoxFor(model => model.csvScore)
+                            </td>
+                        </tr>
+                    </table>
+
+                    <br />
+                    <h4>Proofessional Qualifications</h4>
+                    <table class="table table-striped table-hover table-bordered">
+                        <tr>
+                            <th>No.</th>
+                            <th>Name</th>
+                            <th>Position</th>
+                            <th>Qualifications</th>
+                            <th>Years of Experience</th>
+                            <th>Years in Proposed Position</th>
+                        </tr>
+                        <tbody id="newRowEmp"></tbody>
+                    </table>
+                    @Html.EditorFor(model => model.bid.contractor.empTable, new { htmlAttributes = new { @class = "hiddenInputEmp" } })
+                    <div class="form-control theme">
+                        1 @Html.RadioButtonFor(model => model.profQuaScore, "1")
+                        2 @Html.RadioButtonFor(model => model.profQuaScore, "2")
+                        3 @Html.RadioButtonFor(model => model.profQuaScore, "3")
+                        4 @Html.RadioButtonFor(model => model.profQuaScore, "4")
+                        5 @Html.RadioButtonFor(model => model.profQuaScore, "5")
+                        6 @Html.RadioButtonFor(model => model.profQuaScore, "6")
+                        7 @Html.RadioButtonFor(model => model.profQuaScore, "7")
+                        8 @Html.RadioButtonFor(model => model.profQuaScore, "8")
+                        9 @Html.RadioButtonFor(model => model.profQuaScore, "9")
+                        10 @Html.RadioButtonFor(model => model.profQuaScore, "10")
+                    </div>
+
+                    <br>
+                    <h4>Equipment Capabilities</h4>
+                    <table class="table table-striped table-hover table-bordered">
+                        <tr>
+                            <th>No.</th>
+                            <th>Description</th>
+                            <th>Power/Capacity</th>
+                            <th>No. of Units</th>
+                            <th>Agr of use</th>
+                            <th>Source of Equipment</th>
+                            <th>Current Location</th>
+                        </tr>
+                        <tbody id="newRowEqi"></tbody>
+                    </table>
+                    @Html.EditorFor(model => model.bid.contractor.machEquipTable, new { htmlAttributes = new { @class = "hiddenInputEqi" } })
+                    <div class="form-control theme">
+                        1 @Html.RadioButtonFor(model => model.equipScore, "1")
+                        2 @Html.RadioButtonFor(model => model.equipScore, "2")
+                        3 @Html.RadioButtonFor(model => model.equipScore, "3")
+                        4 @Html.RadioButtonFor(model => model.equipScore, "4")
+                        5 @Html.RadioButtonFor(model => model.equipScore, "5")
+                        6 @Html.RadioButtonFor(model => model.equipScore, "6")
+                        7 @Html.RadioButtonFor(model => model.equipScore, "7")
+                        8 @Html.RadioButtonFor(model => model.equipScore, "8")
+                        9 @Html.RadioButtonFor(model => model.equipScore, "9")
+                        10 @Html.RadioButtonFor(model => model.equipScore, "10")
+                    </div>
+                </div>
+
+                @Html.EditorFor(model => model.BidId)
+                <br />
+                <div class="form-group">
+                    <div class="col-md-10"></div>
+                    <div class="col-md-2">
+                        <input type="submit" value="Save" class="btn btn-default" />
+                    </div>
+                </div>
+
+                <br />
+                <h3>Financial Proposal</h3>
+                <hr>
+                <h3>Bill of Quantity</h3>
+                <br />
+                <table id="fullTbl" class="table table-striped table-hover table-bordered">
+                    <tr>
+                        <th>No.</th>
+                        <th>Description</th>
+                        <th>Unit</th>
+                        <th>Quantity</th>
+                        <th>Unit Rate</th>
+                        <th>Total Amount</th>
+                    </tr>
+                    <tbody id="newRow"></tbody>
+                </table>
+                @Html.EditorFor(model => model.bid.completedBillofQuantity, new { htmlAttributes = new { @class = "hiddenInput" } })
+
+
+            </div>
+
+        </div>
+    }
+
+</div>
+
+
+
+@section Scripts {
+@Scripts.Render("~/bundles/jqueryval")
+    <script>
+    $(function () {
+
+        //Retrive table in the form of a string
+        var str = $(".hiddenInput").val();
+        console.log*(str);
+        //To parse a string to js obj parse twice
+        var back = JSON.parse(str);
+        var twice = JSON.parse(back);
+
+        var res = '';
+        $.each(twice, function (i, j) {
+            res += '<tr contenteditable="true">';
+            $.each(twice[i], function (j) {
+                res += '<td>' + twice[i][j] + '</td>';
+            });
+            res += '</tr>';
+        });
+
+        $('#newRow').append(res);
+    });
+
+    $(function () {
+        //Retrieve Professional Qualification Table
+        //Retrive table in the form of a string
+        var str = $(".hiddenInputEmp").val();
+
+        //To parse a string to js obj parse twice
+        var back = JSON.parse(str);
+        var twice = JSON.parse(back);
+
+        var res = '';
+        $.each(twice, function (i, j) {
+            res += '<tr contenteditable="true">';
+            $.each(twice[i], function (j) {
+                res += '<td>' + twice[i][j] + '</td>';
+            });
+            res += '</tr>';
+        });
+
+        $('#newRowEmp').append(res);
+
+        //Retrieve Equipment Capabilities Table
+        //Retrive table in the form of a string
+        str = $(".hiddenInputEqi").val();
+
+        //To parse a string to js obj parse twice
+        back = JSON.parse(str);
+        twice = JSON.parse(back);
+
+        res = '';
+        $.each(twice, function (i, j) {
+            res += '<tr contenteditable="true">';
+            $.each(twice[i], function (j) {
+                res += '<td>' + twice[i][j] + '</td>';
+            });
+            res += '</tr>';
+        });
+
+        $('#newRowEqi').append(res);
+
+        //Retrieve Annual Turnover Table
+        //Retrive table in the form of a string
+        str = $(".hiddenInputAt").val();
+
+        //To parse a string to js obj parse twice
+        back = JSON.parse(str);
+        twice = JSON.parse(back);
+
+        res = '';
+        $.each(twice, function (i, j) {
+            res += '<tr contenteditable="true">';
+            $.each(twice[i], function (j) {
+                res += '<td>' + twice[i][j] + '</td>';
+            });
+            res += '</tr>';
+        });
+
+        $('#newRowAt').append(res);
+
+    });
+    </script>
+}

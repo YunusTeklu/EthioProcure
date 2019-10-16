@@ -1,0 +1,616 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="Model.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="__MigrationHistory">
+    <Key>
+      <PropertyRef Name="MigrationId" />
+      <PropertyRef Name="ContextKey" />
+    </Key>
+    <Property Name="MigrationId" Type="nvarchar" MaxLength="150" Nullable="false" />
+    <Property Name="ContextKey" Type="nvarchar" MaxLength="300" Nullable="false" />
+    <Property Name="Model" Type="varbinary(max)" Nullable="false" />
+    <Property Name="ProductVersion" Type="nvarchar" MaxLength="32" Nullable="false" />
+  </EntityType>
+  <EntityType Name="AdvancePayements">
+    <Key>
+      <PropertyRef Name="AdvancePayementId" />
+    </Key>
+    <Property Name="AdvancePayementId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="apRate" Type="real" Nullable="false" />
+    <Property Name="apNumber" Type="int" Nullable="false" />
+    <Property Name="amount" Type="real" Nullable="false" />
+    <Property Name="project_ProjectId" Type="int" />
+  </EntityType>
+  <EntityType Name="AspNetRoles">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="nvarchar" MaxLength="128" Nullable="false" />
+    <Property Name="Name" Type="nvarchar" MaxLength="256" Nullable="false" />
+  </EntityType>
+  <EntityType Name="AspNetUserClaims">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="UserId" Type="nvarchar" MaxLength="128" Nullable="false" />
+    <Property Name="ClaimType" Type="nvarchar(max)" />
+    <Property Name="ClaimValue" Type="nvarchar(max)" />
+  </EntityType>
+  <EntityType Name="AspNetUserLogins">
+    <Key>
+      <PropertyRef Name="LoginProvider" />
+      <PropertyRef Name="ProviderKey" />
+      <PropertyRef Name="UserId" />
+    </Key>
+    <Property Name="LoginProvider" Type="nvarchar" MaxLength="128" Nullable="false" />
+    <Property Name="ProviderKey" Type="nvarchar" MaxLength="128" Nullable="false" />
+    <Property Name="UserId" Type="nvarchar" MaxLength="128" Nullable="false" />
+  </EntityType>
+  <EntityType Name="AspNetUserRoles">
+    <Key>
+      <PropertyRef Name="UserId" />
+      <PropertyRef Name="RoleId" />
+    </Key>
+    <Property Name="UserId" Type="nvarchar" MaxLength="128" Nullable="false" />
+    <Property Name="RoleId" Type="nvarchar" MaxLength="128" Nullable="false" />
+  </EntityType>
+  <EntityType Name="AspNetUsers">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="nvarchar" MaxLength="128" Nullable="false" />
+    <Property Name="Email" Type="nvarchar" MaxLength="256" />
+    <Property Name="EmailConfirmed" Type="bit" Nullable="false" />
+    <Property Name="PasswordHash" Type="nvarchar(max)" />
+    <Property Name="SecurityStamp" Type="nvarchar(max)" />
+    <Property Name="PhoneNumber" Type="nvarchar(max)" />
+    <Property Name="PhoneNumberConfirmed" Type="bit" Nullable="false" />
+    <Property Name="TwoFactorEnabled" Type="bit" Nullable="false" />
+    <Property Name="LockoutEndDateUtc" Type="datetime" />
+    <Property Name="LockoutEnabled" Type="bit" Nullable="false" />
+    <Property Name="AccessFailedCount" Type="int" Nullable="false" />
+    <Property Name="UserName" Type="nvarchar" MaxLength="256" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Bids">
+    <Key>
+      <PropertyRef Name="BidId" />
+    </Key>
+    <Property Name="BidId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="methodology" Type="nvarchar(max)" />
+    <Property Name="implementationPlan" Type="nvarchar(max)" />
+    <Property Name="workSchedule" Type="nvarchar(max)" />
+    <Property Name="bidSecurity" Type="varbinary(max)" />
+    <Property Name="certificateOfSiteVisit" Type="varbinary(max)" />
+    <Property Name="consultant_OrganizationId" Type="int" />
+    <Property Name="contractor_OrganizationId" Type="int" />
+    <Property Name="tender_TenderId" Type="int" />
+  </EntityType>
+  <EntityType Name="Employees">
+    <Key>
+      <PropertyRef Name="EmployeeId" />
+    </Key>
+    <Property Name="EmployeeId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="firstName" Type="nvarchar(max)" />
+    <Property Name="fathrName" Type="nvarchar(max)" />
+    <Property Name="gFatherName" Type="nvarchar(max)" />
+    <Property Name="role" Type="nvarchar(max)" />
+    <Property Name="employementContract" Type="varbinary(max)" />
+    <Property Name="password" Type="nvarchar(max)" />
+    <Property Name="email" Type="nvarchar(max)" />
+    <Property Name="telephone" Type="nvarchar(max)" />
+    <Property Name="OrganizationId" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="MaterialOrders">
+    <Key>
+      <PropertyRef Name="Material_MaterialId" />
+      <PropertyRef Name="Order_OrderId" />
+    </Key>
+    <Property Name="Material_MaterialId" Type="int" Nullable="false" />
+    <Property Name="Order_OrderId" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Materials">
+    <Key>
+      <PropertyRef Name="MaterialId" />
+    </Key>
+    <Property Name="MaterialId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="name" Type="nvarchar(max)" />
+    <Property Name="unitIn" Type="nvarchar(max)" />
+    <Property Name="unitPrice" Type="real" Nullable="false" />
+  </EntityType>
+  <EntityType Name="OrderProjects">
+    <Key>
+      <PropertyRef Name="Order_OrderId" />
+      <PropertyRef Name="Project_ProjectId" />
+    </Key>
+    <Property Name="Order_OrderId" Type="int" Nullable="false" />
+    <Property Name="Project_ProjectId" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Orders">
+    <Key>
+      <PropertyRef Name="OrderId" />
+    </Key>
+    <Property Name="OrderId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="orderDate" Type="datetime" Nullable="false" />
+    <Property Name="deliveryDate" Type="datetime" Nullable="false" />
+    <Property Name="orderStatus" Type="nvarchar(max)" />
+    <Property Name="orderValidity" Type="bit" Nullable="false" />
+    <Property Name="quantity" Type="real" Nullable="false" />
+    <Property Name="semiTotal" Type="real" Nullable="false" />
+    <Property Name="materialQualityCertificate" Type="varbinary(max)" />
+    <Property Name="supplier_OrganizationId" Type="int" />
+  </EntityType>
+  <EntityType Name="Organizations">
+    <Key>
+      <PropertyRef Name="OrganizationId" />
+    </Key>
+    <Property Name="OrganizationId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="organizationName" Type="nvarchar" MaxLength="255" Nullable="false" />
+    <Property Name="logo" Type="varbinary(max)" />
+    <Property Name="description" Type="nvarchar(max)" />
+    <Property Name="email" Type="nvarchar(max)" />
+    <Property Name="telephone" Type="nvarchar(max)" />
+    <Property Name="publicCertificate" Type="varbinary(max)" />
+    <Property Name="Discriminator" Type="nvarchar" MaxLength="128" Nullable="false" />
+    <Property Name="tinNo" Type="nvarchar" MaxLength="255" />
+    <Property Name="businessLicence" Type="varbinary(max)" />
+    <Property Name="contractorLevel" Type="int" />
+    <Property Name="annualTurnover" Type="real" />
+    <Property Name="contractorType" Type="nvarchar(max)" />
+    <Property Name="certificateOfCompetency" Type="varbinary(max)" />
+    <Property Name="auditReport" Type="varbinary(max)" />
+    <Property Name="machinaryCertificate" Type="varbinary(max)" />
+    <Property Name="numProfessionalEngineers" Type="int" />
+    <Property Name="numGraduateEngineers" Type="int" />
+    <Property Name="numAssotiateEngineers" Type="int" />
+    <Property Name="staffCV" Type="varbinary(max)" />
+    <Property Name="performanceletter" Type="varbinary(max)" />
+    <Property Name="bankName" Type="nvarchar(max)" />
+    <Property Name="accountNo" Type="nvarchar(max)" />
+    <Property Name="consultancyContract" Type="varbinary(max)" />
+    <Property Name="logoName" Type="nvarchar" MaxLength="255" />
+    <Property Name="cocName" Type="nvarchar" MaxLength="255" />
+    <Property Name="arName" Type="nvarchar" MaxLength="255" />
+    <Property Name="mcName" Type="nvarchar" MaxLength="255" />
+    <Property Name="scName" Type="nvarchar" MaxLength="255" />
+    <Property Name="plName" Type="nvarchar" MaxLength="255" />
+    <Property Name="blName" Type="nvarchar" MaxLength="255" />
+  </EntityType>
+  <EntityType Name="Projects">
+    <Key>
+      <PropertyRef Name="ProjectId" />
+    </Key>
+    <Property Name="ProjectId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="bankName" Type="nvarchar(max)" />
+    <Property Name="projectAccountNo" Type="nvarchar(max)" />
+    <Property Name="projectContract" Type="varbinary(max)" />
+    <Property Name="letterOfAcceptence" Type="varbinary(max)" />
+    <Property Name="consultant_OrganizationId" Type="int" />
+    <Property Name="contractor_OrganizationId" Type="int" />
+  </EntityType>
+  <EntityType Name="SupplierMaterials">
+    <Key>
+      <PropertyRef Name="Supplier_OrganizationId" />
+      <PropertyRef Name="Material_MaterialId" />
+    </Key>
+    <Property Name="Supplier_OrganizationId" Type="int" Nullable="false" />
+    <Property Name="Material_MaterialId" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Tenders">
+    <Key>
+      <PropertyRef Name="TenderId" />
+    </Key>
+    <Property Name="TenderId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="projectTitle" Type="nvarchar(max)" />
+    <Property Name="projectScope" Type="nvarchar(max)" />
+    <Property Name="openingDate" Type="datetime" Nullable="false" />
+    <Property Name="submissionDeadline" Type="datetime" Nullable="false" />
+    <Property Name="contractType" Type="nvarchar(max)" />
+    <Property Name="requiredContractors" Type="nvarchar(max)" />
+    <Property Name="evaluationMethod" Type="nvarchar(max)" />
+    <Property Name="consultant_OrganizationId" Type="int" />
+    <Property Name="tenderer_OrganizationId" Type="int" />
+  </EntityType>
+  <EntityType Name="Transactions">
+    <Key>
+      <PropertyRef Name="TransactionId" />
+    </Key>
+    <Property Name="TransactionId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="amountTransfered" Type="real" Nullable="false" />
+    <Property Name="order_OrderId" Type="int" />
+    <Property Name="project_ProjectId" Type="int" />
+  </EntityType>
+  <Association Name="FK_dbo_AdvancePayements_dbo_Projects_project_ProjectId">
+    <End Role="Projects" Type="Self.Projects" Multiplicity="0..1" />
+    <End Role="AdvancePayements" Type="Self.AdvancePayements" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Projects">
+        <PropertyRef Name="ProjectId" />
+      </Principal>
+      <Dependent Role="AdvancePayements">
+        <PropertyRef Name="project_ProjectId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_dbo_AspNetUserClaims_dbo_AspNetUsers_UserId">
+    <End Role="AspNetUsers" Type="Self.AspNetUsers" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="AspNetUserClaims" Type="Self.AspNetUserClaims" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="AspNetUsers">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="AspNetUserClaims">
+        <PropertyRef Name="UserId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_dbo_AspNetUserLogins_dbo_AspNetUsers_UserId">
+    <End Role="AspNetUsers" Type="Self.AspNetUsers" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="AspNetUserLogins" Type="Self.AspNetUserLogins" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="AspNetUsers">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="AspNetUserLogins">
+        <PropertyRef Name="UserId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_dbo_AspNetUserRoles_dbo_AspNetRoles_RoleId">
+    <End Role="AspNetRoles" Type="Self.AspNetRoles" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="AspNetUserRoles" Type="Self.AspNetUserRoles" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="AspNetRoles">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="AspNetUserRoles">
+        <PropertyRef Name="RoleId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_dbo_AspNetUserRoles_dbo_AspNetUsers_UserId">
+    <End Role="AspNetUsers" Type="Self.AspNetUsers" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="AspNetUserRoles" Type="Self.AspNetUserRoles" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="AspNetUsers">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="AspNetUserRoles">
+        <PropertyRef Name="UserId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_dbo_Bids_dbo_Organizations_consultant_OrganizationId">
+    <End Role="Organizations" Type="Self.Organizations" Multiplicity="0..1" />
+    <End Role="Bids" Type="Self.Bids" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Organizations">
+        <PropertyRef Name="OrganizationId" />
+      </Principal>
+      <Dependent Role="Bids">
+        <PropertyRef Name="consultant_OrganizationId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_dbo_Bids_dbo_Organizations_contractor_OrganizationId">
+    <End Role="Organizations" Type="Self.Organizations" Multiplicity="0..1" />
+    <End Role="Bids" Type="Self.Bids" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Organizations">
+        <PropertyRef Name="OrganizationId" />
+      </Principal>
+      <Dependent Role="Bids">
+        <PropertyRef Name="contractor_OrganizationId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_dbo_Bids_dbo_Tenders_tender_TenderId">
+    <End Role="Tenders" Type="Self.Tenders" Multiplicity="0..1" />
+    <End Role="Bids" Type="Self.Bids" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Tenders">
+        <PropertyRef Name="TenderId" />
+      </Principal>
+      <Dependent Role="Bids">
+        <PropertyRef Name="tender_TenderId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_dbo_Employees_dbo_Organizations_OrganizationId">
+    <End Role="Organizations" Type="Self.Organizations" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="Employees" Type="Self.Employees" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Organizations">
+        <PropertyRef Name="OrganizationId" />
+      </Principal>
+      <Dependent Role="Employees">
+        <PropertyRef Name="OrganizationId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_dbo_MaterialOrders_dbo_Materials_Material_MaterialId">
+    <End Role="Materials" Type="Self.Materials" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="MaterialOrders" Type="Self.MaterialOrders" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Materials">
+        <PropertyRef Name="MaterialId" />
+      </Principal>
+      <Dependent Role="MaterialOrders">
+        <PropertyRef Name="Material_MaterialId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_dbo_MaterialOrders_dbo_Orders_Order_OrderId">
+    <End Role="Orders" Type="Self.Orders" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="MaterialOrders" Type="Self.MaterialOrders" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Orders">
+        <PropertyRef Name="OrderId" />
+      </Principal>
+      <Dependent Role="MaterialOrders">
+        <PropertyRef Name="Order_OrderId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_dbo_OrderProjects_dbo_Orders_Order_OrderId">
+    <End Role="Orders" Type="Self.Orders" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="OrderProjects" Type="Self.OrderProjects" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Orders">
+        <PropertyRef Name="OrderId" />
+      </Principal>
+      <Dependent Role="OrderProjects">
+        <PropertyRef Name="Order_OrderId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_dbo_OrderProjects_dbo_Projects_Project_ProjectId">
+    <End Role="Projects" Type="Self.Projects" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="OrderProjects" Type="Self.OrderProjects" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Projects">
+        <PropertyRef Name="ProjectId" />
+      </Principal>
+      <Dependent Role="OrderProjects">
+        <PropertyRef Name="Project_ProjectId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_dbo_Orders_dbo_Organizations_supplier_OrganizationId">
+    <End Role="Organizations" Type="Self.Organizations" Multiplicity="0..1" />
+    <End Role="Orders" Type="Self.Orders" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Organizations">
+        <PropertyRef Name="OrganizationId" />
+      </Principal>
+      <Dependent Role="Orders">
+        <PropertyRef Name="supplier_OrganizationId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_dbo_Projects_dbo_Organizations_consultant_OrganizationId">
+    <End Role="Organizations" Type="Self.Organizations" Multiplicity="0..1" />
+    <End Role="Projects" Type="Self.Projects" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Organizations">
+        <PropertyRef Name="OrganizationId" />
+      </Principal>
+      <Dependent Role="Projects">
+        <PropertyRef Name="consultant_OrganizationId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_dbo_Projects_dbo_Organizations_contractor_OrganizationId">
+    <End Role="Organizations" Type="Self.Organizations" Multiplicity="0..1" />
+    <End Role="Projects" Type="Self.Projects" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Organizations">
+        <PropertyRef Name="OrganizationId" />
+      </Principal>
+      <Dependent Role="Projects">
+        <PropertyRef Name="contractor_OrganizationId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_dbo_SupplierMaterials_dbo_Materials_Material_MaterialId">
+    <End Role="Materials" Type="Self.Materials" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="SupplierMaterials" Type="Self.SupplierMaterials" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Materials">
+        <PropertyRef Name="MaterialId" />
+      </Principal>
+      <Dependent Role="SupplierMaterials">
+        <PropertyRef Name="Material_MaterialId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_dbo_SupplierMaterials_dbo_Organizations_Supplier_OrganizationId">
+    <End Role="Organizations" Type="Self.Organizations" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="SupplierMaterials" Type="Self.SupplierMaterials" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Organizations">
+        <PropertyRef Name="OrganizationId" />
+      </Principal>
+      <Dependent Role="SupplierMaterials">
+        <PropertyRef Name="Supplier_OrganizationId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_dbo_Tenders_dbo_Organizations_consultant_OrganizationId">
+    <End Role="Organizations" Type="Self.Organizations" Multiplicity="0..1" />
+    <End Role="Tenders" Type="Self.Tenders" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Organizations">
+        <PropertyRef Name="OrganizationId" />
+      </Principal>
+      <Dependent Role="Tenders">
+        <PropertyRef Name="consultant_OrganizationId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_dbo_Tenders_dbo_Organizations_tenderer_OrganizationId">
+    <End Role="Organizations" Type="Self.Organizations" Multiplicity="0..1" />
+    <End Role="Tenders" Type="Self.Tenders" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Organizations">
+        <PropertyRef Name="OrganizationId" />
+      </Principal>
+      <Dependent Role="Tenders">
+        <PropertyRef Name="tenderer_OrganizationId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_dbo_Transactions_dbo_Orders_order_OrderId">
+    <End Role="Orders" Type="Self.Orders" Multiplicity="0..1" />
+    <End Role="Transactions" Type="Self.Transactions" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Orders">
+        <PropertyRef Name="OrderId" />
+      </Principal>
+      <Dependent Role="Transactions">
+        <PropertyRef Name="order_OrderId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_dbo_Transactions_dbo_Projects_project_ProjectId">
+    <End Role="Projects" Type="Self.Projects" Multiplicity="0..1" />
+    <End Role="Transactions" Type="Self.Transactions" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Projects">
+        <PropertyRef Name="ProjectId" />
+      </Principal>
+      <Dependent Role="Transactions">
+        <PropertyRef Name="project_ProjectId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="ModelStoreContainer">
+    <EntitySet Name="__MigrationHistory" EntityType="Self.__MigrationHistory" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="AdvancePayements" EntityType="Self.AdvancePayements" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="AspNetRoles" EntityType="Self.AspNetRoles" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="AspNetUserClaims" EntityType="Self.AspNetUserClaims" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="AspNetUserLogins" EntityType="Self.AspNetUserLogins" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="AspNetUserRoles" EntityType="Self.AspNetUserRoles" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="AspNetUsers" EntityType="Self.AspNetUsers" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Bids" EntityType="Self.Bids" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Employees" EntityType="Self.Employees" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="MaterialOrders" EntityType="Self.MaterialOrders" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Materials" EntityType="Self.Materials" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="OrderProjects" EntityType="Self.OrderProjects" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Orders" EntityType="Self.Orders" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Organizations" EntityType="Self.Organizations" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Projects" EntityType="Self.Projects" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="SupplierMaterials" EntityType="Self.SupplierMaterials" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Tenders" EntityType="Self.Tenders" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Transactions" EntityType="Self.Transactions" Schema="dbo" store:Type="Tables" />
+    <AssociationSet Name="FK_dbo_AdvancePayements_dbo_Projects_project_ProjectId" Association="Self.FK_dbo_AdvancePayements_dbo_Projects_project_ProjectId">
+      <End Role="Projects" EntitySet="Projects" />
+      <End Role="AdvancePayements" EntitySet="AdvancePayements" />
+    </AssociationSet>
+    <AssociationSet Name="FK_dbo_AspNetUserClaims_dbo_AspNetUsers_UserId" Association="Self.FK_dbo_AspNetUserClaims_dbo_AspNetUsers_UserId">
+      <End Role="AspNetUsers" EntitySet="AspNetUsers" />
+      <End Role="AspNetUserClaims" EntitySet="AspNetUserClaims" />
+    </AssociationSet>
+    <AssociationSet Name="FK_dbo_AspNetUserLogins_dbo_AspNetUsers_UserId" Association="Self.FK_dbo_AspNetUserLogins_dbo_AspNetUsers_UserId">
+      <End Role="AspNetUsers" EntitySet="AspNetUsers" />
+      <End Role="AspNetUserLogins" EntitySet="AspNetUserLogins" />
+    </AssociationSet>
+    <AssociationSet Name="FK_dbo_AspNetUserRoles_dbo_AspNetRoles_RoleId" Association="Self.FK_dbo_AspNetUserRoles_dbo_AspNetRoles_RoleId">
+      <End Role="AspNetRoles" EntitySet="AspNetRoles" />
+      <End Role="AspNetUserRoles" EntitySet="AspNetUserRoles" />
+    </AssociationSet>
+    <AssociationSet Name="FK_dbo_AspNetUserRoles_dbo_AspNetUsers_UserId" Association="Self.FK_dbo_AspNetUserRoles_dbo_AspNetUsers_UserId">
+      <End Role="AspNetUsers" EntitySet="AspNetUsers" />
+      <End Role="AspNetUserRoles" EntitySet="AspNetUserRoles" />
+    </AssociationSet>
+    <AssociationSet Name="FK_dbo_Bids_dbo_Organizations_consultant_OrganizationId" Association="Self.FK_dbo_Bids_dbo_Organizations_consultant_OrganizationId">
+      <End Role="Organizations" EntitySet="Organizations" />
+      <End Role="Bids" EntitySet="Bids" />
+    </AssociationSet>
+    <AssociationSet Name="FK_dbo_Bids_dbo_Organizations_contractor_OrganizationId" Association="Self.FK_dbo_Bids_dbo_Organizations_contractor_OrganizationId">
+      <End Role="Organizations" EntitySet="Organizations" />
+      <End Role="Bids" EntitySet="Bids" />
+    </AssociationSet>
+    <AssociationSet Name="FK_dbo_Bids_dbo_Tenders_tender_TenderId" Association="Self.FK_dbo_Bids_dbo_Tenders_tender_TenderId">
+      <End Role="Tenders" EntitySet="Tenders" />
+      <End Role="Bids" EntitySet="Bids" />
+    </AssociationSet>
+    <AssociationSet Name="FK_dbo_Employees_dbo_Organizations_OrganizationId" Association="Self.FK_dbo_Employees_dbo_Organizations_OrganizationId">
+      <End Role="Organizations" EntitySet="Organizations" />
+      <End Role="Employees" EntitySet="Employees" />
+    </AssociationSet>
+    <AssociationSet Name="FK_dbo_MaterialOrders_dbo_Materials_Material_MaterialId" Association="Self.FK_dbo_MaterialOrders_dbo_Materials_Material_MaterialId">
+      <End Role="Materials" EntitySet="Materials" />
+      <End Role="MaterialOrders" EntitySet="MaterialOrders" />
+    </AssociationSet>
+    <AssociationSet Name="FK_dbo_MaterialOrders_dbo_Orders_Order_OrderId" Association="Self.FK_dbo_MaterialOrders_dbo_Orders_Order_OrderId">
+      <End Role="Orders" EntitySet="Orders" />
+      <End Role="MaterialOrders" EntitySet="MaterialOrders" />
+    </AssociationSet>
+    <AssociationSet Name="FK_dbo_OrderProjects_dbo_Orders_Order_OrderId" Association="Self.FK_dbo_OrderProjects_dbo_Orders_Order_OrderId">
+      <End Role="Orders" EntitySet="Orders" />
+      <End Role="OrderProjects" EntitySet="OrderProjects" />
+    </AssociationSet>
+    <AssociationSet Name="FK_dbo_OrderProjects_dbo_Projects_Project_ProjectId" Association="Self.FK_dbo_OrderProjects_dbo_Projects_Project_ProjectId">
+      <End Role="Projects" EntitySet="Projects" />
+      <End Role="OrderProjects" EntitySet="OrderProjects" />
+    </AssociationSet>
+    <AssociationSet Name="FK_dbo_Orders_dbo_Organizations_supplier_OrganizationId" Association="Self.FK_dbo_Orders_dbo_Organizations_supplier_OrganizationId">
+      <End Role="Organizations" EntitySet="Organizations" />
+      <End Role="Orders" EntitySet="Orders" />
+    </AssociationSet>
+    <AssociationSet Name="FK_dbo_Projects_dbo_Organizations_consultant_OrganizationId" Association="Self.FK_dbo_Projects_dbo_Organizations_consultant_OrganizationId">
+      <End Role="Organizations" EntitySet="Organizations" />
+      <End Role="Projects" EntitySet="Projects" />
+    </AssociationSet>
+    <AssociationSet Name="FK_dbo_Projects_dbo_Organizations_contractor_OrganizationId" Association="Self.FK_dbo_Projects_dbo_Organizations_contractor_OrganizationId">
+      <End Role="Organizations" EntitySet="Organizations" />
+      <End Role="Projects" EntitySet="Projects" />
+    </AssociationSet>
+    <AssociationSet Name="FK_dbo_SupplierMaterials_dbo_Materials_Material_MaterialId" Association="Self.FK_dbo_SupplierMaterials_dbo_Materials_Material_MaterialId">
+      <End Role="Materials" EntitySet="Materials" />
+      <End Role="SupplierMaterials" EntitySet="SupplierMaterials" />
+    </AssociationSet>
+    <AssociationSet Name="FK_dbo_SupplierMaterials_dbo_Organizations_Supplier_OrganizationId" Association="Self.FK_dbo_SupplierMaterials_dbo_Organizations_Supplier_OrganizationId">
+      <End Role="Organizations" EntitySet="Organizations" />
+      <End Role="SupplierMaterials" EntitySet="SupplierMaterials" />
+    </AssociationSet>
+    <AssociationSet Name="FK_dbo_Tenders_dbo_Organizations_consultant_OrganizationId" Association="Self.FK_dbo_Tenders_dbo_Organizations_consultant_OrganizationId">
+      <End Role="Organizations" EntitySet="Organizations" />
+      <End Role="Tenders" EntitySet="Tenders" />
+    </AssociationSet>
+    <AssociationSet Name="FK_dbo_Tenders_dbo_Organizations_tenderer_OrganizationId" Association="Self.FK_dbo_Tenders_dbo_Organizations_tenderer_OrganizationId">
+      <End Role="Organizations" EntitySet="Organizations" />
+      <End Role="Tenders" EntitySet="Tenders" />
+    </AssociationSet>
+    <AssociationSet Name="FK_dbo_Transactions_dbo_Orders_order_OrderId" Association="Self.FK_dbo_Transactions_dbo_Orders_order_OrderId">
+      <End Role="Orders" EntitySet="Orders" />
+      <End Role="Transactions" EntitySet="Transactions" />
+    </AssociationSet>
+    <AssociationSet Name="FK_dbo_Transactions_dbo_Projects_project_ProjectId" Association="Self.FK_dbo_Transactions_dbo_Projects_project_ProjectId">
+      <End Role="Projects" EntitySet="Projects" />
+      <End Role="Transactions" EntitySet="Transactions" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

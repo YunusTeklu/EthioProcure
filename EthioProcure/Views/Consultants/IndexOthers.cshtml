@@ -1,0 +1,42 @@
+﻿@model IEnumerable<EthioProcure.Models.Consultant>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<div class="blackness">
+    <h2>Consultants</h2>
+    <br />
+
+    <table class="table table-hover table-striped table-responsive">
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.organizationName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.email)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.telephone)
+            </th>
+            <th></th>
+        </tr>
+        @foreach (var item in Model)
+        {
+            <tr onclick="window.location='@Url.Action("Details", new { id= item.OrganizationId} )'">
+                <td>
+                    @Html.DisplayFor(modelItem => item.organizationName)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.email)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.telephone)
+                </td>
+
+            </tr>
+        }
+
+    </table>
+</div>
+

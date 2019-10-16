@@ -1,0 +1,70 @@
+﻿@model IEnumerable<EthioProcure.Models.Tender>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="blackness">
+    <h2>Tenders</h2>
+
+    <br />
+    <table class="table table-hover table-striped table-responsive">
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.projectTitle)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.projectScope)
+            </th>
+            
+            <th>
+                @Html.DisplayNameFor(model => model.contractType)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.procurementMethod)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.bidSecurity)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.requiredContractors)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.evaluationMethod)
+            </th>
+
+        </tr>
+
+        @foreach (var item in Model)
+        {
+            <tr onclick="window.location='@Url.Action("Details", new { id= item.TenderId} )'">
+                <td>
+                    @Html.DisplayFor(modelItem => item.projectTitle)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.projectScope)
+                </td>
+                
+                <td>
+                    @Html.DisplayFor(modelItem => item.contractType)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.procurementMethod)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.bidSecurity)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.requiredContractors)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.evaluationMethod)
+                </td>
+
+            </tr>
+        }
+
+    </table>
+</div>
+
